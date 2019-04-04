@@ -5,34 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
     tools:showIn="@layout/add_assignment">
 
     <EditText
         android:id="@+id/timeDue"
         android:layout_width="wrap_content"
         android:layout_height="41dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="52dp"
         android:ems="10"
-        android:inputType="time"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="83dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/dateDue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="31dp"
         android:ems="10"
         android:inputType="date"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="153dp" />
+        app:layout_constraintBottom_toTopOf="@+id/assignmentName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/Label_Date"
+        app:layout_constraintTop_toBottomOf="@+id/timeDue"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/assignmentName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="401dp"
         android:ems="10"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="229dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateDue" />
 
     <TextView
         android:id="@+id/Label_Name"
@@ -40,5 +52,32 @@
         android:layout_height="wrap_content"
         android:text="Assignment Name:"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="94dp" />
+        tools:layout_editor_absoluteY="89dp" />
+
+    <TextView
+        android:id="@+id/Label_Date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="68dp"
+        android:text="Date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Label_Name" />
+
+    <TextView
+        android:id="@+id/Label_TIme"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:text="Time:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/assignmentName"
+        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Label_Date"
+        app:layout_constraintVertical_bias="0.045" />
+
 </android.support.constraint.ConstraintLayout>
