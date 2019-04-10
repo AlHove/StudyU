@@ -34,12 +34,12 @@
             android:layout_alignParentLeft="true"
             android:layout_marginStart="41dp"
             android:layout_marginLeft="41dp"
-            android:layout_marginTop="79dp"
+            android:layout_marginTop="72dp"
             android:layout_marginEnd="-41dp"
             android:layout_marginRight="-41dp"
             android:layout_toStartOf="@+id/examName"
             android:layout_toLeftOf="@+id/examName"
-            android:hint="Last Name"
+            android:hint="Date"
             android:inputType="date" />
 
         <EditText
