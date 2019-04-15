@@ -66,18 +66,18 @@ public class ExamDBDisplay extends AppCompatActivity {
                 null, //values for where
                 null, //Group By, null is no group by
                 null, //Having, null says return all rows
-                ExamList.ExamEntry.COLUMN_EXAM_DATE.COLUMN_NAME_LAST + " ASC" //names in alpabetical order
+                ExamList.ExamEntry.COLUMN_EXAM_DATE + " ASC" //names in alpabetical order
         );
 
 
         //the list items from the layout, will find these in the row_item,
         //these are the 4 fields being displayed
         int[] to = new int[]{
-                R.id.exam,  R.id.last, R.id.phone, R.id.email
+                R.id.examName,  R.id.examDate, R.id.examTime
         };
 
         //create the adapter
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.row_item, cursor, projection, to, 0);
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.row_item_exam, cursor, projection, to, 0);
 
         //set the adapter to the list
         final ListView listView = (ListView) findViewById(list);
@@ -92,7 +92,7 @@ public class ExamDBDisplay extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.ExamDBDisplay, menu);
+        getMenuInflater().inflate(R.menu.menu_display_db, menu);
         return true;
     }
 
@@ -103,7 +103,7 @@ public class ExamDBDisplay extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.enterValues) {
-            Intent intent = new Intent(getApplicationContext(), AddUserActivity.class);
+            Intent intent = new Intent(getApplicationContext(), AddExam.class);
             startActivity(intent);
             return true;
         }
