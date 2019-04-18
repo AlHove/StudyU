@@ -1,6 +1,6 @@
+package com.example.GonkDroids.StudyU;
+
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -27,7 +27,7 @@ public class AssignmentDBDisplay extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_db);
+        setContentView(R.layout.assignment_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //instead of array and preferences have the DB stuff here
@@ -36,7 +36,7 @@ public class AssignmentDBDisplay extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Add_Assignment.class);
+                Intent intent = new Intent(getApplicationContext(), AddAssignment.class);
                 startActivity(intent);
             }
         });
@@ -47,18 +47,16 @@ public class AssignmentDBDisplay extends AppCompatActivity {
         //out of dataset which columns to use projection
 
         String[] projection = {
-                PersonContract.PersonEntry.COLUMN_NAME_FIRST,
-                PersonContract.PersonEntry.COLUMN_NAME_LAST,
-                PersonContract.PersonEntry.COLUMN_PHONE,
-                PersonContract.PersonEntry.COLUMN_EMAIL
+                AssignmentList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME,
+                AssignmentList.AssignmentEntry.COLUMN_DATE,
+                AssignmentList.AssignmentEntry.COLUMN_TIME,
         };
 
         String[] bind = {
-                PersonContract.PersonEntry._ID,
-                PersonContract.PersonEntry.COLUMN_NAME_FIRST,
-                PersonContract.PersonEntry.COLUMN_NAME_LAST,
-                PersonContract.PersonEntry.COLUMN_PHONE,
-                PersonContract.PersonEntry.COLUMN_EMAIL
+                AssignmentList.AssignmentEntry._ID,
+                AssignmentList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME,
+                AssignmentList.AssignmentEntry.COLUMN_DATE,
+                AssignmentList.AssignmentEntry.COLUMN_TIME,
         };
 
         //now going to call method to return cursor
@@ -76,11 +74,11 @@ public class AssignmentDBDisplay extends AppCompatActivity {
         //the list items from the layout, will find these in the row_item,
         //these are the 4 fields being displayed
         int[] to = new int[]{
-                R.id.first,  R.id.last, R.id.phone, R.id.email
+                R.id.examName,  R.id.examDate, R.id.examTime,
         };
 
         //create the adapter
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.row_item, cursor, projection, to, 0);
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.row_item_assignment, cursor, projection, to, 0);
 
         //set the adapter to the list
         final ListView listView = (ListView) findViewById(list);
@@ -120,7 +118,7 @@ public class AssignmentDBDisplay extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.enterValues) {
-            Intent intent = new Intent(getApplicationContext(), Add_Assignment.class);
+            Intent intent = new Intent(getApplicationContext(), AddAssignment.class);
             startActivity(intent);
             return true;
         }

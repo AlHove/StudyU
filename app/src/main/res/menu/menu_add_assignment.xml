@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+    <menu tools:context="com.example.GonkDroids.StudyU.AddAssignment" xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/display" app:showAsAction="ifRoom" android:orderInCategory="100" android:id="@+id/display"/>
+
+    <item android:title="@string/clearDatabase" app:showAsAction="ifRoom" android:orderInCategory="100" android:id="@+id/clearDatabase"/>
+
+</menu>

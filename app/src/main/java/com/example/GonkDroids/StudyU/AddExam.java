@@ -1,10 +1,10 @@
+package com.example.GonkDroids.StudyU;
+
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.telephony.PhoneNumberFormattingTextWatcher;
-import android.telephony.PhoneNumberUtils;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,18 +12,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.GonkDroids.StudyU.AssignmentDBHelper;
-import com.example.GonkDroids.StudyU.AssignmentList;
-import com.example.GonkDroids.StudyU.ExamDBDisplay;
-import com.example.GonkDroids.StudyU.ExamDBHelper;
-import com.example.GonkDroids.StudyU.ExamList;
+
 /*
 Add_Assignment
  */
 
 public class AddExam extends AppCompatActivity {
 
-    EditText assignmentName, lastName, email, phone;
+    EditText examName, examDate, examTime;
     Button save;
 
 
@@ -35,13 +31,11 @@ public class AddExam extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //grab references to our input fields
 
-        Assignment = (EditText) findViewById(R.id.assignmentName);
-        lastName = (EditText) findViewById(R.id.lastName);
-        email = (EditText) findViewById(R.id.email);
-        phone = (EditText) findViewById(R.id.phone);
+        examName = (EditText) findViewById(R.id.examName);
+        examDate = (EditText) findViewById(R.id.examDate);
+        examTime = (EditText) findViewById(R.id.examTime);
 
         // format the phone number for the user
-        phone.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
         save = (Button) findViewById(R.id.saveButton);
 
 
@@ -51,15 +45,15 @@ public class AddExam extends AppCompatActivity {
             public void onClick(View v) {
 
                 //when the user clicks on save create instance of DbHelper
-                AssignmentDBHelper myDbHelper = new AssignmentDBHelper(getApplicationContext());
+                ExamDBHelper myDbHelper = new ExamDBHelper(getApplicationContext());
                 SQLiteDatabase db = myDbHelper.getWritableDatabase();
                 ContentValues values = new ContentValues();
 
                 //put the values from the screen (not doing and editing here) into the object
-                values.put(AssignmentList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME, firstName.getText().toString()); // Get the person first name
-                values.put(AssignmentList.AssignmentEntry.COLUMN_DATE, lastName.getText().toString()); // Get the person last name
-                values.put(AssignmentList.AssignmentEntry.COLUMN_TIME, email.getText().toString()); // Get the person email
-                values.put(AssignmentList.AssignmentEntry.COLUMN_PHONE, PhoneNumberUtils.formatNumber(phone.getText().toString()));
+                values.put(ExamList.ExamEntry.COLUMN_EXAM_NAME, examName.getText().toString()); // Get the exam name
+                values.put(ExamList.ExamEntry.COLUMN_EXAM_DATE, examDate.getText().toString()); // Get the exam date
+                values.put(ExamList.ExamEntry.COLUMN_EXAM_TIME, examTime.getText().toString()); // Get the person email
+
 
                 //insert the values into the database
                 long newRowId = db.insert(
@@ -68,11 +62,9 @@ public class AddExam extends AppCompatActivity {
                         values);  //values for the insert
 
                 //clear the input fields
-                .setText("");
-                lastName.setText("");
-                email.setText("");
-                phone.setText("");
-                firstName.requestFocus();
+                examName.setText("");
+                examDate.setText("");
+                examTime.setText("");
             }
 
         });
@@ -81,7 +73,7 @@ public class AddExam extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_add_user, menu);
+        getMenuInflater().inflate(R.menu.menu_add_assignment, menu);
         return true;
     }
 

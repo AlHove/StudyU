@@ -1,3 +1,5 @@
+package com.example.GonkDroids.StudyU;
+
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -21,25 +23,22 @@ Add_Assignment
 
 public class AddAssignment extends AppCompatActivity {
 
-    EditText assignmentName, lastName, email, phone;
+    EditText assignmentName, assignmentDate, assignmentTime;
     Button save;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_user);
+        setContentView(R.layout.add_assignment);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //grab references to our input fields
 
-        Assignment = (EditText) findViewById(R.id.assignmentName);
-        lastName = (EditText) findViewById(R.id.lastName);
-        email = (EditText) findViewById(R.id.email);
-        phone = (EditText) findViewById(R.id.phone);
+        assignmentName = (EditText) findViewById(R.id.assignmentName);
+        assignmentDate = (EditText) findViewById(R.id.assignmentDate);
+        assignmentTime = (EditText) findViewById(R.id.assignmentTime);
 
-        // format the phone number for the user
-        phone.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
         save = (Button) findViewById(R.id.saveButton);
 
 
@@ -54,10 +53,10 @@ public class AddAssignment extends AppCompatActivity {
                 ContentValues values = new ContentValues();
 
                 //put the values from the screen (not doing and editing here) into the object
-                values.put(AssignmentList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME, firstName.getText().toString()); // Get the person first name
-                values.put(AssignmentList.AssignmentEntry.COLUMN_DATE, lastName.getText().toString()); // Get the person last name
-                values.put(AssignmentList.AssignmentEntry.COLUMN_TIME, email.getText().toString()); // Get the person email
-                values.put(AssignmentList.AssignmentEntry.COLUMN_PHONE, PhoneNumberUtils.formatNumber(phone.getText().toString()));
+                values.put(AssignmentList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME, assignmentName.getText().toString()); // Get the person first name
+                values.put(AssignmentList.AssignmentEntry.COLUMN_DATE, assignmentDate.getText().toString()); // Get the person last name
+                values.put(AssignmentList.AssignmentEntry.COLUMN_TIME, assignmentTime.getText().toString()); // Get the person email
+
 
                 //insert the values into the database
                 long newRowId = db.insert(
@@ -66,11 +65,10 @@ public class AddAssignment extends AppCompatActivity {
                         values);  //values for the insert
 
                 //clear the input fields
-                firstName.setText("");
-                lastName.setText("");
-                email.setText("");
-                phone.setText("");
-                firstName.requestFocus();
+                assignmentName.setText("");
+                assignmentDate.setText("");
+                assignmentTime.setText("");
+                assignmentName.requestFocus();
             }
 
         });
@@ -79,7 +77,7 @@ public class AddAssignment extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_add_user, menu);
+        getMenuInflater().inflate(R.menu.menu_add_assignment, menu);
         return true;
     }
 
@@ -92,15 +90,15 @@ public class AddAssignment extends AppCompatActivity {
 
         //Start display activity
         if (id == R.id.display) {
-            Intent intent = new Intent(getApplicationContext(), DisplayDB.class);
+            Intent intent = new Intent(getApplicationContext(), AssignmentDBDisplay.class);
             startActivity(intent);
             return true;
         }
         //menu option to clear the entire database, really helpful for testing, remove before going to production
         if (id == R.id.clearDatabase) {
-            PersonDbHelper myDbHelper = new PersonDbHelper(getApplicationContext());
+            AssignmentDBHelper myDbHelper = new AssignmentDBHelper(getApplicationContext());
             SQLiteDatabase db = myDbHelper.getWritableDatabase();
-            db.delete(PersonContract.PersonEntry.TABLE_NAME,"1",null);
+            db.delete(AssignmentList.AssignmentEntry.TABLE_NAME,"1",null);
             return true;
         }
         return super.onOptionsItemSelected(item);
