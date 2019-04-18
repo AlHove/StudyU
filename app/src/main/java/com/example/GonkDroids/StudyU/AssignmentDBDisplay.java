@@ -1,5 +1,6 @@
 package com.example.GonkDroids.StudyU;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,24 +16,20 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
-import com.example.GonkDroids.StudyU.AssignmentDBHelper;
-import com.example.GonkDroids.StudyU.AssignmentList;
-
-import java.util.List;
-
 import static android.R.id.list;
 
+@SuppressLint("Registered")
 public class AssignmentDBDisplay extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.assignment_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //instead of array and preferences have the DB stuff here
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,11 +78,11 @@ public class AssignmentDBDisplay extends AppCompatActivity {
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.row_item_assignment, cursor, projection, to, 0);
 
         //set the adapter to the list
-        final ListView listView = (ListView) findViewById(list);
+        final ListView listView = findViewById(list);
         listView.setAdapter(adapter);
 
         //set up for the empty non data messaged
-        TextView emptyView = (TextView) findViewById(android.R.id.empty);
+        TextView emptyView = findViewById(android.R.id.empty);
         listView.setEmptyView(emptyView);
 
         //need to set the On Item Click Listener

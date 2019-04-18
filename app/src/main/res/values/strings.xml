@@ -5,4 +5,5 @@
     <string name="display">Display</string>
     <string name="clearDatabase">Clear Database</string>
     <string name="enterValues">Enter Names</string>
+    <string name="save">Save</string>
 </resources>

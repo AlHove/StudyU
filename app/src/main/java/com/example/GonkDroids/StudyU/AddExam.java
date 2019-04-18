@@ -1,5 +1,6 @@
 package com.example.GonkDroids.StudyU;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 Add_Assignment
  */
 
+@SuppressLint("Registered")
 public class AddExam extends AppCompatActivity {
 
     EditText examName, examDate, examTime;
@@ -27,16 +29,16 @@ public class AddExam extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_exam);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //grab references to our input fields
 
-        examName = (EditText) findViewById(R.id.examName);
-        examDate = (EditText) findViewById(R.id.examDate);
-        examTime = (EditText) findViewById(R.id.examTime);
+        examName = findViewById(R.id.examName);
+        examDate = findViewById(R.id.examDate);
+        examTime = findViewById(R.id.examTime);
 
         // format the phone number for the user
-        save = (Button) findViewById(R.id.saveButton);
+        save = findViewById(R.id.saveButton);
 
 
 

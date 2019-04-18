@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /*
-Helps the Exam zDatabase
+Helps the Exam Database
  */
 public class ExamDBHelper extends SQLiteOpenHelper{
 

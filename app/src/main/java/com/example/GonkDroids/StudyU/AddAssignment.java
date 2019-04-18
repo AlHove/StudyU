@@ -5,18 +5,13 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.telephony.PhoneNumberFormattingTextWatcher;
-import android.telephony.PhoneNumberUtils;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.example.GonkDroids.StudyU.AssignmentDBHelper;
-import com.example.GonkDroids.StudyU.AssignmentList;
 /*
 Add_Assignment
  */
@@ -31,15 +26,15 @@ public class AddAssignment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_assignment);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //grab references to our input fields
 
-        assignmentName = (EditText) findViewById(R.id.assignmentName);
-        assignmentDate = (EditText) findViewById(R.id.assignmentDate);
-        assignmentTime = (EditText) findViewById(R.id.assignmentTime);
+        assignmentName = findViewById(R.id.assignmentName);
+        assignmentDate = findViewById(R.id.assignmentDate);
+        assignmentTime = findViewById(R.id.assignmentTime);
 
-        save = (Button) findViewById(R.id.saveButton);
+        save = findViewById(R.id.saveButton);
 
 
 
