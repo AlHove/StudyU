@@ -1,6 +1,4 @@
 package com.example.GonkDroids.StudyU;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -18,7 +16,7 @@ import android.widget.TextView;
 
 import static android.R.id.list;
 
-@SuppressLint("Registered")
+
 public class AssignmentDBDisplay extends AppCompatActivity {
 
     @Override
@@ -29,7 +27,7 @@ public class AssignmentDBDisplay extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //instead of array and preferences have the DB stuff here
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fabAssignment);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,7 +36,7 @@ public class AssignmentDBDisplay extends AppCompatActivity {
             }
         });
 
-        AssignmentDBHelper dbHelper = new AssignmentDBHelper(getApplicationContext());
+        WorkDBHelper dbHelper = new WorkDBHelper(getApplicationContext());
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         //
         //out of dataset which columns to use projection

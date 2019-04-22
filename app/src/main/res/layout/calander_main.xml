@@ -7,26 +7,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.github.sundeepk.compactcalendarview.CompactCalendarView xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/calendar_view"
-        android:layout_width="fill_parent"
-        android:layout_height="250dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        app:compactCalendarBackgroundColor="#cecece"
-        app:compactCalendarCurrentDayBackgroundColor="#B71C1C"
-        app:compactCalendarCurrentSelectedDayBackgroundColor="#3b7a57"
-        app:compactCalendarMultiEventIndicatorColor="#3b7a57"
-        app:compactCalendarTargetHeight="250dp"
-        app:compactCalendarTextColor="#000"
-        app:compactCalendarTextSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/events"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="466dp"
@@ -38,22 +18,76 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toTopOf="@+id/calendar_view"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.507" />
+
+    <CalendarView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/calendar_view"
+        android:layout_width="fill_parent"
+        android:layout_height="250dp"
+        android:layout_marginBottom="8dp"
+        android:firstDayOfWeek="1"
+        android:minDate="04/01/2019"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:weekNumberColor="#f00"
+        android:weekSeparatorLineColor="#0f0"
+        app:layout_constraintBottom_toTopOf="@+id/examsLabel"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+
+    <TextView
+        android:id="@+id/examsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="345dp"
+        android:text="@string/exam"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintBottom_toTopOf="@+id/exams"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendar_view" />
 
     <ListView
-        android:id="@+id/events"
+        android:id="@+id/exams"
         android:layout_width="395dp"
-        android:layout_height="287dp"
+        android:layout_height="150dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="24dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/assignmentLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendar_view" />
+        app:layout_constraintTop_toBottomOf="@+id/examsLabel" />
+
+    <TextView
+        android:id="@+id/assignmentLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/assignments"
+        android:text="@string/assignment"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintBottom_toTopOf="@+id/assignments"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/exams" />
+
+    <ListView
+        android:id="@+id/assignments"
+        style="@style/Widget.AppCompat.ListView"
+        android:layout_width="395dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/assignmentLabel"
+        android:layout_marginStart="8dp"
+        android:scrollbars="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assignmentLabel" />
 
 </android.support.constraint.ConstraintLayout>

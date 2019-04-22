@@ -43,7 +43,7 @@ public class AddAssignment extends AppCompatActivity {
             public void onClick(View v) {
 
                 //when the user clicks on save create instance of DbHelper
-                AssignmentDBHelper myDbHelper = new AssignmentDBHelper(getApplicationContext());
+                WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
                 SQLiteDatabase db = myDbHelper.getWritableDatabase();
                 ContentValues values = new ContentValues();
 
@@ -91,7 +91,7 @@ public class AddAssignment extends AppCompatActivity {
         }
         //menu option to clear the entire database, really helpful for testing, remove before going to production
         if (id == R.id.clearDatabase) {
-            AssignmentDBHelper myDbHelper = new AssignmentDBHelper(getApplicationContext());
+            WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
             SQLiteDatabase db = myDbHelper.getWritableDatabase();
             db.delete(AssignmentList.AssignmentEntry.TABLE_NAME,"1",null);
             return true;
