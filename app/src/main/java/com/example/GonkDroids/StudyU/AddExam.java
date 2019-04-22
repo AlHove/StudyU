@@ -47,14 +47,14 @@ public class AddExam extends AppCompatActivity {
             public void onClick(View v) {
 
                 //when the user clicks on save create instance of DbHelper
-                ExamDBHelper myDbHelper = new ExamDBHelper(getApplicationContext());
+                WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
                 SQLiteDatabase db = myDbHelper.getWritableDatabase();
                 ContentValues values = new ContentValues();
 
                 //put the values from the screen (not doing and editing here) into the object
-                values.put(ExamList.ExamEntry.COLUMN_EXAM_NAME, examName.getText().toString()); // Get the exam name
-                values.put(ExamList.ExamEntry.COLUMN_EXAM_DATE, examDate.getText().toString()); // Get the exam date
-                values.put(ExamList.ExamEntry.COLUMN_EXAM_TIME, examTime.getText().toString()); // Get the person email
+                values.put(WorkList.ExamEntry.COLUMN_EXAM_NAME, examName.getText().toString()); // Get the exam name
+                values.put(WorkList.ExamEntry.COLUMN_EXAM_DATE, examDate.getText().toString()); // Get the exam date
+                values.put(WorkList.ExamEntry.COLUMN_EXAM_TIME, examTime.getText().toString()); // Get the person email
 
 
                 //insert the values into the database
@@ -94,9 +94,9 @@ public class AddExam extends AppCompatActivity {
         }
         //menu option to clear the entire database, really helpful for testing, remove before going to production
         if (id == R.id.clearDatabase) {
-            ExamDBHelper myDbHelper = new ExamDBHelper(getApplicationContext());
+            WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
             SQLiteDatabase db = myDbHelper.getWritableDatabase();
-            db.delete(ExamList.ExamEntry.TABLE_NAME,"1",null);
+            db.delete(WorkList.ExamEntry.TABLE_NAME,"1",null);
             return true;
         }
         return super.onOptionsItemSelected(item);
