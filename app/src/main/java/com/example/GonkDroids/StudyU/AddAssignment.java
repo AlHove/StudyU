@@ -10,7 +10,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+
+import android.widget.TimePicker;
+
+import java.util.Calendar;
+import java.util.Date;
+
 
 /*
 Add_Assignment
@@ -18,8 +25,9 @@ Add_Assignment
 
 public class AddAssignment extends AppCompatActivity {
 
-    EditText assignmentName, assignmentDate, assignmentTime;
+    EditText assignmentName;
     Button save;
+    Date chosenDate;
 
 
     @Override
@@ -31,16 +39,23 @@ public class AddAssignment extends AppCompatActivity {
         //grab references to our input fields
 
         assignmentName = findViewById(R.id.assignmentName);
-        assignmentDate = findViewById(R.id.assignmentDate);
-        assignmentTime = findViewById(R.id.assignmentTime);
+        final TimePicker assignmentTime = findViewById(R.id.assignmentTime);
+        assignmentTime.setIs24HourView(true);
+        final DatePicker assignmentDate =findViewById(R.id.assignmentDate);
+
 
         save = findViewById(R.id.saveButton);
-
-
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                int day = assignmentDate.getDayOfMonth();
+                int month = assignmentDate.getMonth();
+                int year =  assignmentDate.getYear();
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(day, month, year);
+                chosenDate = calendar.getTime();
 
                 //when the user clicks on save create instance of DbHelper
                 WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
@@ -48,21 +63,19 @@ public class AddAssignment extends AppCompatActivity {
                 ContentValues values = new ContentValues();
 
                 //put the values from the screen (not doing and editing here) into the object
-                values.put(AssignmentList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME, assignmentName.getText().toString()); // Get the person first name
-                values.put(AssignmentList.AssignmentEntry.COLUMN_DATE, assignmentDate.getText().toString()); // Get the person last name
-                values.put(AssignmentList.AssignmentEntry.COLUMN_TIME, assignmentTime.getText().toString()); // Get the person email
+                values.put(WorkList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME, assignmentName.getText().toString()); // Get the person first name
+                values.put(WorkList.AssignmentEntry.COLUMN_DATE, chosenDate.toString()); // Get the person last name
+                values.put(WorkList.AssignmentEntry.COLUMN_TIME, assignmentTime.toString()); // Get the person email
 
 
                 //insert the values into the database
                 long newRowId = db.insert(
-                        AssignmentList.AssignmentEntry.TABLE_NAME,  //table name for insert
+                        WorkList.AssignmentEntry.TABLE_NAME,  //table name for insert
                         null,  //null is all columns
                         values);  //values for the insert
 
                 //clear the input fields
                 assignmentName.setText("");
-                assignmentDate.setText("");
-                assignmentTime.setText("");
                 assignmentName.requestFocus();
             }
 
@@ -72,7 +85,7 @@ public class AddAssignment extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_add_assignment, menu);
+        getMenuInflater().inflate(R.menu.addassignment_menu, menu);
         return true;
     }
 
@@ -83,17 +96,21 @@ public class AddAssignment extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //Start display activity
-        if (id == R.id.display) {
+        //Start display assignment activity
+        if (id == R.id.viewAssignment) {
             Intent intent = new Intent(getApplicationContext(), AssignmentDBDisplay.class);
             startActivity(intent);
             return true;
         }
         //menu option to clear the entire database, really helpful for testing, remove before going to production
-        if (id == R.id.clearDatabase) {
-            WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
-            SQLiteDatabase db = myDbHelper.getWritableDatabase();
-            db.delete(AssignmentList.AssignmentEntry.TABLE_NAME,"1",null);
+        if (id == R.id.viewExam) {
+            Intent intent = new Intent(getApplicationContext(), ExamDBDisplay.class);
+            startActivity(intent);
+            return true;
+        }
+        if (id == R.id.viewCalender) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);

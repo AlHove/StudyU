@@ -4,7 +4,12 @@
     <string name="nodata">No Data</string>
     <string name="exam">Exam Due:</string>
     <string name="assignment">Assignments Due:</string>
-    <string name="display">Display</string>
+    <string name="viewAssignment">View Assignments</string>
+    <string name="viewExam">View Exams</string>
+    <string name="viewCalender">View Calender</string>
+    <string name="time">Time</string>
+    <string name="date">Date</string>
+    <string name="name">Name</string>
     <string name="clearDatabase">Clear Database</string>
     <string name="enterValues">Enter Names</string>
     <string name="save">Save</string>

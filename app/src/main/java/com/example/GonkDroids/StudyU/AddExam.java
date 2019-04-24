@@ -11,18 +11,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TimePicker;
 
+import java.util.Calendar;
+import java.util.Date;
 
 /*
-Add_Assignment
+Add_Exam
  */
-
-@SuppressLint("Registered")
 public class AddExam extends AppCompatActivity {
 
-    EditText examName, examDate, examTime;
+    EditText examName;
     Button save;
+    Date chosenDate;
 
 
     @Override
@@ -34,17 +37,23 @@ public class AddExam extends AppCompatActivity {
         //grab references to our input fields
 
         examName = findViewById(R.id.examName);
-        examDate = findViewById(R.id.examDate);
-        examTime = findViewById(R.id.examTime);
+        final TimePicker examTime =findViewById(R.id.examTime);
+        examTime.setIs24HourView(true);
 
-        // format the phone number for the user
+        final DatePicker examDate =findViewById(R.id.assignmentDate);
         save = findViewById(R.id.saveButton);
-
 
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                int day = examDate.getDayOfMonth();
+                int month = examDate.getMonth();
+                int year =  examDate.getYear();
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(day, month, year);
+                chosenDate = calendar.getTime();
 
                 //when the user clicks on save create instance of DbHelper
                 WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
@@ -53,20 +62,18 @@ public class AddExam extends AppCompatActivity {
 
                 //put the values from the screen (not doing and editing here) into the object
                 values.put(WorkList.ExamEntry.COLUMN_EXAM_NAME, examName.getText().toString()); // Get the exam name
-                values.put(WorkList.ExamEntry.COLUMN_EXAM_DATE, examDate.getText().toString()); // Get the exam date
-                values.put(WorkList.ExamEntry.COLUMN_EXAM_TIME, examTime.getText().toString()); // Get the person email
+                values.put(WorkList.ExamEntry.COLUMN_EXAM_DATE, chosenDate.toString()); // Get the exam date
+                values.put(WorkList.ExamEntry.COLUMN_EXAM_TIME, examTime.toString()); // Get the exam time
 
 
                 //insert the values into the database
                 long newRowId = db.insert(
-                        AssignmentList.AssignmentEntry.TABLE_NAME,  //table name for insert
+                        WorkList.AssignmentEntry.TABLE_NAME,  //table name for insert
                         null,  //null is all columns
                         values);  //values for the insert
 
-                //clear the input fields
+                //clear the input text field
                 examName.setText("");
-                examDate.setText("");
-                examTime.setText("");
             }
 
         });
@@ -75,7 +82,7 @@ public class AddExam extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_add_assignment, menu);
+        getMenuInflater().inflate(R.menu.addexam_menu, menu);
         return true;
     }
 
@@ -86,17 +93,21 @@ public class AddExam extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //Start display activity
-        if (id == R.id.display) {
-            Intent intent = new Intent(getApplicationContext(), ExamDBDisplay.class);
+        //Start display assignment activity
+        if (id == R.id.viewAssignment) {
+            Intent intent = new Intent(getApplicationContext(), AssignmentDBDisplay.class);
             startActivity(intent);
             return true;
         }
         //menu option to clear the entire database, really helpful for testing, remove before going to production
-        if (id == R.id.clearDatabase) {
-            WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
-            SQLiteDatabase db = myDbHelper.getWritableDatabase();
-            db.delete(WorkList.ExamEntry.TABLE_NAME,"1",null);
+        if (id == R.id.viewExam) {
+            Intent intent = new Intent(getApplicationContext(), ExamDBDisplay.class);
+            startActivity(intent);
+            return true;
+        }
+        if (id == R.id.viewCalender) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);

@@ -39,7 +39,7 @@ public class WorkDBHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) { //Creates a person in the database
         db.execSQL(SQL_CREATE_ASSIGNMENT);
-
+        db.execSQL(SQL_CREATE_EXAM_TABLE);
     }
 
     @Override

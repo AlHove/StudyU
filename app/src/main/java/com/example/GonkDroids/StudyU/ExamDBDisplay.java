@@ -13,8 +13,9 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
-
-import static android.R.id.list;
+/*
+Display Exams
+ */
 
 public class ExamDBDisplay extends AppCompatActivity {
 
@@ -87,7 +88,7 @@ public class ExamDBDisplay extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_display_db, menu);
+        getMenuInflater().inflate(R.menu.exam_menu, menu);
         return true;
     }
 
@@ -97,8 +98,13 @@ public class ExamDBDisplay extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.enterValues) {
-            Intent intent = new Intent(getApplicationContext(), AddExam.class);
+        if (id == R.id.viewCalender) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        if (id == R.id.viewAssignment) {
+            Intent intent = new Intent(getApplicationContext(), AssignmentDBDisplay.class);
             startActivity(intent);
             return true;
         }

@@ -4,13 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".AddAssignment">
 
-
-        android:layout_height="match_parent">
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -19,50 +15,41 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
             android:layout_marginTop="46dp"
-            android:hint="Assignment Name"
+            android:hint="@string/name"
             android:inputType="text" />
 
-        <EditText
+        <DatePicker
             android:id="@+id/assignmentDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/assignmentName"
             android:layout_alignEnd="@+id/assignmentName"
-            android:layout_alignRight="@+id/assignmentName"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_marginStart="41dp"
-            android:layout_marginLeft="41dp"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="-41dp"
-            android:layout_marginRight="-41dp"
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"
             android:layout_toStartOf="@+id/assignmentName"
-            android:layout_toLeftOf="@+id/assignmentName"
-            android:hint="Date"
+            android:hint="@string/date"
             android:inputType="date" />
 
-        <EditText
+        <TimePicker
             android:id="@+id/assignmentTime"
             android:layout_width="208dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/assignmentDate"
             android:layout_alignEnd="@+id/assignmentDate"
-            android:layout_alignRight="@+id/assignmentDate"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_marginStart="44dp"
-            android:layout_marginLeft="44dp"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="43dp"
-            android:layout_marginRight="43dp"
+            android:timePickerMode="spinner"
             android:layout_toStartOf="@+id/assignmentDate"
-            android:layout_toLeftOf="@+id/assignmentDate"
-            android:hint="Time"
+            android:hint="@string/time"
             android:inputType="time" />
 
 
@@ -73,7 +60,6 @@
             android:layout_below="@+id/assignmentTime"
             android:layout_alignParentStart="true"
             android:layout_marginStart="45dp"
-            android:layout_marginLeft="45dp"
             android:layout_marginTop="60dp"
             android:text="@string/save" />
     </RelativeLayout>

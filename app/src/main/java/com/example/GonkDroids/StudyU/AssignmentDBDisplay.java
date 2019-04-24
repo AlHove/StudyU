@@ -42,27 +42,27 @@ public class AssignmentDBDisplay extends AppCompatActivity {
         //out of dataset which columns to use projection
 
         String[] projection = {
-                AssignmentList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME,
-                AssignmentList.AssignmentEntry.COLUMN_DATE,
-                AssignmentList.AssignmentEntry.COLUMN_TIME,
+                WorkList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME,
+                WorkList.AssignmentEntry.COLUMN_DATE,
+                WorkList.AssignmentEntry.COLUMN_TIME,
         };
 
         String[] bind = {
-                AssignmentList.AssignmentEntry._ID,
-                AssignmentList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME,
-                AssignmentList.AssignmentEntry.COLUMN_DATE,
-                AssignmentList.AssignmentEntry.COLUMN_TIME,
+                WorkList.AssignmentEntry._ID,
+                WorkList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME,
+                WorkList.AssignmentEntry.COLUMN_DATE,
+                WorkList.AssignmentEntry.COLUMN_TIME,
         };
 
         //now going to call method to return cursor
 
-        Cursor cursor = db.query(AssignmentList.AssignmentEntry.TABLE_NAME, //table to query
+        Cursor cursor = db.query(WorkList.AssignmentEntry.TABLE_NAME, //table to query
                 bind,
                 null, //columns for where, Null will return all rows
                 null, //values for where
                 null, //Group By, null is no group by
                 null, //Having, null says return all rows
-                AssignmentList.AssignmentEntry.COLUMN_DATE + " ASC" //names in alpabetical order
+                WorkList.AssignmentEntry.COLUMN_DATE + " ASC" //names in alpabetical order
         );
 
 
@@ -102,7 +102,7 @@ public class AssignmentDBDisplay extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_display_db, menu);
+        getMenuInflater().inflate(R.menu.addassignment_menu, menu);
         return true;
     }
 
@@ -112,13 +112,23 @@ public class AssignmentDBDisplay extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.enterValues) {
-            Intent intent = new Intent(getApplicationContext(), AddAssignment.class);
+        //Start display assignment activity
+        if (id == R.id.viewAssignment) {
+            Intent intent = new Intent(getApplicationContext(), AssignmentDBDisplay.class);
             startActivity(intent);
             return true;
         }
-
-
+        //menu option to clear the entire database, really helpful for testing, remove before going to production
+        if (id == R.id.viewExam) {
+            Intent intent = new Intent(getApplicationContext(), ExamDBDisplay.class);
+            startActivity(intent);
+            return true;
+        }
+        if (id == R.id.viewCalender) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
