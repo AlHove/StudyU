@@ -91,7 +91,7 @@ public class AssignmentDBDisplay extends AppCompatActivity {
 
                 //Handle the on-click and display a toast, will do more work here later
                 Cursor cursor = (Cursor) parent.getItemAtPosition(position);
-
+        // type up
             }
 
 
@@ -112,21 +112,13 @@ public class AssignmentDBDisplay extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        //Start display assignment activity
-        if (id == R.id.viewAssignment) {
-            Intent intent = new Intent(getApplicationContext(), AssignmentDBDisplay.class);
-            startActivity(intent);
-            return true;
-        }
         //menu option to clear the entire database, really helpful for testing, remove before going to production
         if (id == R.id.viewExam) {
-            Intent intent = new Intent(getApplicationContext(), ExamDBDisplay.class);
-            startActivity(intent);
+            startActivity(new Intent(getApplicationContext(), ExamDBDisplay.class));
             return true;
         }
         if (id == R.id.viewCalender) {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

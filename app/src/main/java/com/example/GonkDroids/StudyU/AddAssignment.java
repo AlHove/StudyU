@@ -69,7 +69,7 @@ public class AddAssignment extends AppCompatActivity {
 
 
                 //insert the values into the database
-                long newRowId = db.insert(
+               db.insert(
                         WorkList.AssignmentEntry.TABLE_NAME,  //table name for insert
                         null,  //null is all columns
                         values);  //values for the insert
@@ -108,6 +108,7 @@ public class AddAssignment extends AppCompatActivity {
             startActivity(intent);
             return true;
         }
+
         if (id == R.id.viewCalender) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);

@@ -94,21 +94,16 @@ public class ExamDBDisplay extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
-        if (id == R.id.viewCalender) {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
+        if (id == R.id.viewCalender) { // view calander
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
             return true;
         }
         if (id == R.id.viewAssignment) {
-            Intent intent = new Intent(getApplicationContext(), AssignmentDBDisplay.class);
-            startActivity(intent);
+            startActivity(new Intent(getApplicationContext(), AssignmentDBDisplay.class));
             return true;
         }
-
 
         return super.onOptionsItemSelected(item);
     }

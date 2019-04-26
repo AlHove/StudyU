@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">StudyU</string>
     <string name="action_settings">Settings</string>
-    <string name="nodata">No Data</string>
+    <string name="nodata">Empty file</string>
     <string name="exam">Exam Due:</string>
     <string name="assignment">Assignments Due:</string>
     <string name="viewAssignment">View Assignments</string>

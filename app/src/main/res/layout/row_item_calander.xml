@@ -8,7 +8,7 @@
 
     </LinearLayout>
     <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content">
-    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/examDate" android:textColor="#0022ff" android:text="Empty File" android:paddingLeft="20dp"/>
-    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/examTime" android:textColor="#0022ff" android:padding="10dp" android:text="Empty File"/>
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/examDate" android:textColor="#0022ff" android:text="@string/nodata" android:paddingLeft="20dp"/>
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/examTime" android:textColor="#0022ff" android:padding="10dp" android:text="@string/nodata"/>
 </LinearLayout>
 </LinearLayout>

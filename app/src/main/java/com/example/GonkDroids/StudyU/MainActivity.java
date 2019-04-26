@@ -13,35 +13,38 @@ import android.widget.CalendarView;
 import android.widget.CalendarView.OnDateChangeListener;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 
-
+import java.util.*;
+import java.text.SimpleDateFormat;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+
+    private String CurrentDate;
+    CalendarView cv = findViewById(R.id.calendar_view); // get the reference of CalendarView
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calander_main);
         Log.d(TAG, "onCreate: Starting.");
+       final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar c = Calendar.getInstance();
+        CurrentDate = sdf.format(c.getTime());
 
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        CalendarView cv = findViewById(R.id.calendar_view); // get the reference of CalendarView
+        Toolbar toolbar = findViewById(R.id.calendar_toolbar);
         setSupportActionBar(toolbar);
         cv.setOnDateChangeListener(new OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
-                //generate assignments and exams
+               CurrentDate = sdf.format(new Date(cv.getDate()));
             }
         });
         //instead of array and preferences have the DB stuff here
 
-        WorkDBHelper WorkHelper = new WorkDBHelper(getApplicationContext());
+        WorkDBHelper WorkHelper = new WorkDBHelper(this);
         SQLiteDatabase db = WorkHelper.getReadableDatabase();
 
 
@@ -71,25 +74,28 @@ public class MainActivity extends AppCompatActivity {
                 WorkList.AssignmentEntry.COLUMN_TIME,
         };
 
-        //now going to call method to return cursor
+        String whichDayAssignment = WorkList.AssignmentEntry.COLUMN_DATE + " = " + CurrentDate;
+        String whichDayExam = WorkList.ExamEntry.COLUMN_EXAM_DATE + " = " + CurrentDate;
 
-        Cursor assignCursor = db.query(WorkList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME, //table to query
+
+
+        Cursor assignCursor = db.query(WorkList.AssignmentEntry.TABLE_NAME, //table to query
                 bindAssignment,
-                null, //columns for where, Null will return all rows
+                whichDayAssignment, //columns for where, Null will return all rows
                 null, //values for where
                 null, //Group By, null is no group by
                 null, //Having, null says return all rows
-                WorkList.AssignmentEntry.COLUMN_TIME + " ASC" //names in alpabetical order
+                WorkList.AssignmentEntry.COLUMN_TIME + " ASC" //time order
         );
+
         Cursor examCursor = db.query(WorkList.ExamEntry.TABLE_NAME, //table to query
                 bindExam,
-                null, //columns for where, Null will return all rows
+                whichDayExam, //columns for where, Null will return all rows
                 null, //values for where
                 null, //Group By, null is no group by
                 null, //Having, null says return all rows
                 WorkList.ExamEntry.COLUMN_EXAM_TIME + " ASC" //times in order
         );
-
 
         //the list items from the layout, will find these in the row_item,
         //these are the 4 fields being displayed
@@ -105,23 +111,15 @@ public class MainActivity extends AppCompatActivity {
         final ListView listViewAssignment = findViewById(R.id.assignments);
         listViewAssignment.setAdapter(adapterAssignment);
 
-        //set up for the empty non data messages Assignment
-        TextView emptyViewAssignment = findViewById(android.R.id.empty);
-        listViewAssignment.setEmptyView(emptyViewAssignment);
 
         //set the adapter to the list
         final ListView listViewExam = findViewById(R.id.exams);
         listViewExam.setAdapter(adapterExam);
-
-        //set up for the empty non data messages Assignment
-        TextView emptyViewExam = findViewById(android.R.id.empty);
-        listViewAssignment.setEmptyView(emptyViewExam);
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu
         getMenuInflater().inflate(R.menu.calander_menu, menu);
         return true;
     }
@@ -135,14 +133,12 @@ public class MainActivity extends AppCompatActivity {
 
         //Start display assignment activity
         if (id == R.id.viewAssignment) {
-            Intent intent = new Intent(getApplicationContext(), AssignmentDBDisplay.class);
-            startActivity(intent);
+            startActivity(new Intent(getApplicationContext(), AssignmentDBDisplay.class));
             return true;
         }
-        //menu option to clear the entire database, really helpful for testing, remove before going to production
+        //move to view exam
         if (id == R.id.viewExam) {
-            Intent intent = new Intent(getApplicationContext(), ExamDBDisplay.class);
-            startActivity(intent);
+            startActivity(new Intent(getApplicationContext(), ExamDBDisplay.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

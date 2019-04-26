@@ -1,6 +1,5 @@
 package com.example.GonkDroids.StudyU;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -26,7 +25,6 @@ public class AddExam extends AppCompatActivity {
     EditText examName;
     Button save;
     Date chosenDate;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +65,7 @@ public class AddExam extends AppCompatActivity {
 
 
                 //insert the values into the database
-                long newRowId = db.insert(
+                 db.insert(
                         WorkList.AssignmentEntry.TABLE_NAME,  //table name for insert
                         null,  //null is all columns
                         values);  //values for the insert
