@@ -14,7 +14,6 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
-import static android.R.id.list;
 
 
 public class AssignmentDBDisplay extends AppCompatActivity {
@@ -23,23 +22,21 @@ public class AssignmentDBDisplay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.assignment_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar_assignment);
         setSupportActionBar(toolbar);
         //instead of array and preferences have the DB stuff here
 
         FloatingActionButton fab = findViewById(R.id.fabAssignment);
         fab.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AddAssignment.class);
                 startActivity(intent);
             }
         });
 
-        WorkDBHelper dbHelper = new WorkDBHelper(getApplicationContext());
+        WorkDBHelper dbHelper = new WorkDBHelper(this);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        //
-        //out of dataset which columns to use projection
+
 
         String[] projection = {
                 WorkList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME,
@@ -76,7 +73,7 @@ public class AssignmentDBDisplay extends AppCompatActivity {
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.row_item_assignment, cursor, projection, to, 0);
 
         //set the adapter to the list
-        final ListView listView = findViewById(list);
+        final ListView listView = findViewById(R.id.assignmentList);
         listView.setAdapter(adapter);
 
         //set up for the empty non data messaged

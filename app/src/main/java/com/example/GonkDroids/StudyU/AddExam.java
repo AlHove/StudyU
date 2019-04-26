@@ -30,7 +30,7 @@ public class AddExam extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_exam);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar_exam);
         setSupportActionBar(toolbar);
         //grab references to our input fields
 
@@ -38,7 +38,7 @@ public class AddExam extends AppCompatActivity {
         final TimePicker examTime =findViewById(R.id.examTime);
         examTime.setIs24HourView(true);
 
-        final DatePicker examDate =findViewById(R.id.assignmentDate);
+        final DatePicker examDate = findViewById(R.id.assignmentDate);
         save = findViewById(R.id.saveButton);
 
 
@@ -79,7 +79,6 @@ public class AddExam extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.addexam_menu, menu);
         return true;
     }

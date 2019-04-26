@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CalendarView;
@@ -22,19 +21,20 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     private String CurrentDate;
-    CalendarView cv = findViewById(R.id.calendar_view); // get the reference of CalendarView
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calander_main);
-        Log.d(TAG, "onCreate: Starting.");
-       final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+        final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Calendar c = Calendar.getInstance();
         CurrentDate = sdf.format(c.getTime());
+        final CalendarView cv = findViewById(R.id.calendar_view); // get the reference of CalendarView
 
         Toolbar toolbar = findViewById(R.id.calendar_toolbar);
         setSupportActionBar(toolbar);
+
         cv.setOnDateChangeListener(new OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month,
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         });
         //instead of array and preferences have the DB stuff here
 
-        WorkDBHelper WorkHelper = new WorkDBHelper(this);
+        WorkDBHelper WorkHelper = new WorkDBHelper(getApplicationContext());
         SQLiteDatabase db = WorkHelper.getReadableDatabase();
 
 

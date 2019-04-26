@@ -22,6 +22,7 @@
         <activity android:name=".AddAssignment" />
         <activity android:name=".AddExam" />
         <activity android:name=".AssignmentDBDisplay" />
+        <activity android:name=".WorkDBHelper" />
     </application>
 
 </manifest>

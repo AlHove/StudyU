@@ -23,7 +23,7 @@ public class ExamDBDisplay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exam_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar_exam);
         setSupportActionBar(toolbar);
         //instead of array and preferences have the DB stuff here
 
@@ -31,7 +31,7 @@ public class ExamDBDisplay extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), WorkDBHelper.class);
+                Intent intent = new Intent(getApplicationContext(), AddExam.class);
                 startActivity(intent);
             }
         });

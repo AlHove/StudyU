@@ -34,14 +34,14 @@ public class AddAssignment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_assignment);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar_assignment);
         setSupportActionBar(toolbar);
         //grab references to our input fields
 
         assignmentName = findViewById(R.id.assignmentName);
         final TimePicker assignmentTime = findViewById(R.id.assignmentTime);
         assignmentTime.setIs24HourView(true);
-        final DatePicker assignmentDate =findViewById(R.id.assignmentDate);
+        final DatePicker assignmentDate = findViewById(R.id.assignmentDate);
 
 
         save = findViewById(R.id.saveButton);

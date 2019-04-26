@@ -11,9 +11,9 @@ Alyssa Hove 4/9/19
 
 public class WorkDBHelper extends SQLiteOpenHelper{
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 4;
     private static final String DATABASE_NAME = "work.db";
-    private static final String TEXT_TYPE = "TEXT";
+    private static final String TEXT_TYPE = " TEXT";
     private static final String COMMA_SEP = ",";
 
     private static final String SQL_CREATE_ASSIGNMENT = "CREATE TABLE " + WorkList.AssignmentEntry.TABLE_NAME + " (" +
