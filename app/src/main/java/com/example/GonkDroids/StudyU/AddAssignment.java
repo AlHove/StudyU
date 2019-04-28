@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,10 +14,6 @@ import android.widget.EditText;
 
 import android.widget.TimePicker;
 
-import java.util.Calendar;
-import java.util.Date;
-
-
 /*
 Add_Assignment
  */
@@ -27,15 +22,12 @@ public class AddAssignment extends AppCompatActivity {
 
     EditText assignmentName;
     Button save;
-    Date chosenDate;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_assignment);
-        Toolbar toolbar = findViewById(R.id.toolbar_assignment);
-        setSupportActionBar(toolbar);
         //grab references to our input fields
 
         assignmentName = findViewById(R.id.assignmentName);
@@ -56,9 +48,17 @@ public class AddAssignment extends AppCompatActivity {
 
                 int hour = assignmentTime.getHour();
                 int minute = assignmentTime.getMinute();
+                String singleMinute;
+                String time;
 
-                String date = day + "/" + month + "/" + year;
-                String time = hour + ":" + minute;
+                String date = (month + 1) + "/" + day + "/" + year;
+                if (minute < 10) {
+                    singleMinute = "0" + minute;
+                    time = hour + ":" + singleMinute;
+                }
+                else {
+                    time = hour + ":" + minute;
+                }
 
                 //when the user clicks on save create instance of DbHelper
                 WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());

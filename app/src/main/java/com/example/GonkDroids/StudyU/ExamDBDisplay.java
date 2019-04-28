@@ -104,6 +104,13 @@ public class ExamDBDisplay extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), AssignmentDBDisplay.class));
             return true;
         }
+        //menu option to clear the entire database, really helpful for testing, remove before going to production
+        if (id == R.id.clearDatabase) {
+            WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
+            SQLiteDatabase db = myDbHelper.getWritableDatabase();
+            db.delete(WorkList.ExamEntry.TABLE_NAME,"1",null);
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }

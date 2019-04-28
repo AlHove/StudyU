@@ -47,7 +47,19 @@ public class AddExam extends AppCompatActivity {
                 int month = examDate.getMonth();
                 int year =  examDate.getYear();
 
-                String date = day + "/" + month + "/" + year;
+                int hour = examTime.getHour();
+                int minute = examTime.getMinute();
+                String singleMinute ="";
+                String time = "";
+
+                String date = (month + 1) + "/" + day + "/" + year;
+                if (minute < 10) {
+                    singleMinute = "0" + minute;
+                    time = hour + ":" + singleMinute;
+                }
+                else {
+                    time = hour + ":" + minute;
+                }
                 //when the user clicks on save create instance of DbHelper
                 WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
                 SQLiteDatabase db = myDbHelper.getWritableDatabase();
@@ -56,7 +68,7 @@ public class AddExam extends AppCompatActivity {
                 //put the values from the screen (not doing and editing here) into the object
                 values.put(WorkList.ExamEntry.COLUMN_EXAM_NAME, examName.getText().toString()); // Get the exam name
                 values.put(WorkList.ExamEntry.COLUMN_EXAM_DATE, date); // Get the exam date
-                values.put(WorkList.ExamEntry.COLUMN_EXAM_TIME, examTime.toString()); // Get the exam time
+                values.put(WorkList.ExamEntry.COLUMN_EXAM_TIME, time); // Get the exam time
 
 
                 //insert the values into the database

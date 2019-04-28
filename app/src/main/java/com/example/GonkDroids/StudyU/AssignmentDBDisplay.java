@@ -12,7 +12,9 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
-
+/*
+Display Assignments
+*/
 
 
 public class AssignmentDBDisplay extends AppCompatActivity {
@@ -25,7 +27,7 @@ public class AssignmentDBDisplay extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //instead of array and preferences have the DB stuff here
 
-        FloatingActionButton fab = findViewById(R.id.fabAssignment);
+        FloatingActionButton fab = findViewById(R.id.fabAssign);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,7 +101,7 @@ public class AssignmentDBDisplay extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.addassignment_menu, menu);
+        getMenuInflater().inflate(R.menu.assignment_menu, menu);
         return true;
     }
 
