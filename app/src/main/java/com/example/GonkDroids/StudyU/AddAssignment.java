@@ -53,9 +53,12 @@ public class AddAssignment extends AppCompatActivity {
                 int day = assignmentDate.getDayOfMonth();
                 int month = assignmentDate.getMonth();
                 int year =  assignmentDate.getYear();
-                Calendar calendar = Calendar.getInstance();
-                calendar.set(day, month, year);
-                chosenDate = calendar.getTime();
+
+                int hour = assignmentTime.getHour();
+                int minute = assignmentTime.getMinute();
+
+                String date = day + "/" + month + "/" + year;
+                String time = hour + ":" + minute;
 
                 //when the user clicks on save create instance of DbHelper
                 WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
@@ -64,8 +67,8 @@ public class AddAssignment extends AppCompatActivity {
 
                 //put the values from the screen (not doing and editing here) into the object
                 values.put(WorkList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME, assignmentName.getText().toString()); // Get the person first name
-                values.put(WorkList.AssignmentEntry.COLUMN_DATE, chosenDate.toString()); // Get the person last name
-                values.put(WorkList.AssignmentEntry.COLUMN_TIME, assignmentTime.toString()); // Get the person email
+                values.put(WorkList.AssignmentEntry.COLUMN_DATE, date); // Get the person last name
+                values.put(WorkList.AssignmentEntry.COLUMN_TIME, time); // Get the person email
 
 
                 //insert the values into the database

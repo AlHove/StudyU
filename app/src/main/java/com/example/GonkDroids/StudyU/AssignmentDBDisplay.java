@@ -9,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -28,6 +27,7 @@ public class AssignmentDBDisplay extends AppCompatActivity {
 
         FloatingActionButton fab = findViewById(R.id.fabAssignment);
         fab.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AddAssignment.class);
                 startActivity(intent);
@@ -81,7 +81,7 @@ public class AssignmentDBDisplay extends AppCompatActivity {
         listView.setEmptyView(emptyView);
 
         //need to set the On Item Click Listener
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+  /*      listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -92,7 +92,7 @@ public class AssignmentDBDisplay extends AppCompatActivity {
             }
 
 
-        });
+        }); */
 
     }
 

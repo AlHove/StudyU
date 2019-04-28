@@ -14,8 +14,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
-import java.util.Calendar;
-import java.util.Date;
 
 /*
 Add_Exam
@@ -24,7 +22,6 @@ public class AddExam extends AppCompatActivity {
 
     EditText examName;
     Button save;
-    Date chosenDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +32,10 @@ public class AddExam extends AppCompatActivity {
         //grab references to our input fields
 
         examName = findViewById(R.id.examName);
-        final TimePicker examTime =findViewById(R.id.examTime);
+        final TimePicker examTime = (TimePicker)findViewById(R.id.examTime);
         examTime.setIs24HourView(true);
 
-        final DatePicker examDate = findViewById(R.id.assignmentDate);
+        final DatePicker examDate = (DatePicker)findViewById(R.id.examDate);
         save = findViewById(R.id.saveButton);
 
 
@@ -49,10 +46,8 @@ public class AddExam extends AppCompatActivity {
                 int day = examDate.getDayOfMonth();
                 int month = examDate.getMonth();
                 int year =  examDate.getYear();
-                Calendar calendar = Calendar.getInstance();
-                calendar.set(day, month, year);
-                chosenDate = calendar.getTime();
 
+                String date = day + "/" + month + "/" + year;
                 //when the user clicks on save create instance of DbHelper
                 WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
                 SQLiteDatabase db = myDbHelper.getWritableDatabase();
@@ -60,18 +55,20 @@ public class AddExam extends AppCompatActivity {
 
                 //put the values from the screen (not doing and editing here) into the object
                 values.put(WorkList.ExamEntry.COLUMN_EXAM_NAME, examName.getText().toString()); // Get the exam name
-                values.put(WorkList.ExamEntry.COLUMN_EXAM_DATE, chosenDate.toString()); // Get the exam date
+                values.put(WorkList.ExamEntry.COLUMN_EXAM_DATE, date); // Get the exam date
                 values.put(WorkList.ExamEntry.COLUMN_EXAM_TIME, examTime.toString()); // Get the exam time
 
 
                 //insert the values into the database
                  db.insert(
-                        WorkList.AssignmentEntry.TABLE_NAME,  //table name for insert
+                        WorkList.ExamEntry.TABLE_NAME,  //table name for insert
                         null,  //null is all columns
                         values);  //values for the insert
 
                 //clear the input text field
                 examName.setText("");
+                Intent intent = new Intent(getApplicationContext(), ExamDBDisplay.class);
+                startActivity(intent);
             }
 
         });
