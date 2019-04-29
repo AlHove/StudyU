@@ -38,8 +38,7 @@ public class ExamDBDisplay extends AppCompatActivity {
 
         WorkDBHelper dbHelper = new WorkDBHelper(getApplicationContext());
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        //
-        //out of dataset which columns to use projection
+
 
         String[] projection = {
                 WorkList.ExamEntry.COLUMN_EXAM_NAME,

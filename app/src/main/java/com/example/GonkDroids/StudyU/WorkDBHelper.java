@@ -1,6 +1,7 @@
 package com.example.GonkDroids.StudyU;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -51,6 +52,20 @@ public class WorkDBHelper extends SQLiteOpenHelper{
         db.execSQL(SQL_DELETE_TABLE_ASSIGNMENT);
         db.execSQL(SQL_DELETE_TABLE_EXAM);
         onCreate(db);
+    }
+
+    public Cursor getExamID(String name){
+            SQLiteDatabase db = this.getWritableDatabase();
+            String query = "SELECT " + WorkList.ExamEntry._ID + " FROM " + WorkList.ExamEntry.TABLE_NAME + " WHERE " + WorkList.ExamEntry.COLUMN_EXAM_NAME + " = '" + name + "'";
+            Cursor data = db.rawQuery(query, null);
+            return data;
+        }
+
+    public Cursor getAssignmentID(String name) { // gets Assignment ID by assignment name
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT " + WorkList.AssignmentEntry._ID + " FROM " + WorkList.AssignmentEntry.TABLE_NAME + " WHERE " + WorkList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME + " = '" + name + "'";
+        Cursor data = db.rawQuery(query, null);
+        return data;
     }
 
 }

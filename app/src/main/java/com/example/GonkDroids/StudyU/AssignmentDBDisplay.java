@@ -1,4 +1,5 @@
 package com.example.GonkDroids.StudyU;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,23 +17,19 @@ import android.widget.TextView;
 Display Assignments
 */
 
-
 public class AssignmentDBDisplay extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.assignment_main);
-        Toolbar toolbar = findViewById(R.id.toolbar_assignment);
-        setSupportActionBar(toolbar);
         //instead of array and preferences have the DB stuff here
 
         FloatingActionButton fab = findViewById(R.id.fabAssign);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AddAssignment.class);
-                startActivity(intent);
+                startActivity(new Intent(getApplicationContext(), AddAssign.class));
             }
         });
 
@@ -68,7 +65,7 @@ public class AssignmentDBDisplay extends AppCompatActivity {
         //the list items from the layout, will find these in the row_item,
         //these are the 4 fields being displayed
         int[] to = new int[]{
-                R.id.examName,  R.id.examDate, R.id.examTime,
+                R.id.assignmentName,  R.id.assignmentDate, R.id.assignmentTime,
         };
 
         //create the adapter

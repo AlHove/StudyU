@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="Empty File"
-            android:textColor="#0022ff" />
+            android:textColor="@color/iconColor" />
 
     </LinearLayout>
 
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
             android:text="Empty File"
-            android:textColor="#0022ff" />
+            android:textColor="@color/iconColor" />
 
         <TextView
             android:id="@+id/examTime"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="Empty File"
-            android:textColor="#0022ff" />
+            android:textColor="@color/iconColor" />
 
     </LinearLayout>
 

@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
                CurrentDate = sdf.format(new Date(cv.getDate()));
+                String whichDayAssignment = WorkList.AssignmentEntry.COLUMN_DATE + " = " + CurrentDate;
+                String whichDayExam = WorkList.ExamEntry.COLUMN_EXAM_DATE + " = " + CurrentDate;
+                refreshDB(whichDayExam,whichDayAssignment);
             }
         });
         //instead of array and preferences have the DB stuff here
@@ -117,6 +120,76 @@ public class MainActivity extends AppCompatActivity {
         listViewExam.setAdapter(adapterExam);
     }
 
+    public void refreshDB(String Exam, String Assignment){
+        WorkDBHelper WorkHelper = new WorkDBHelper(getApplicationContext());
+        SQLiteDatabase db = WorkHelper.getReadableDatabase();
+
+
+        String[] projectionExam = {
+                WorkList.ExamEntry.COLUMN_EXAM_NAME,
+                WorkList.ExamEntry.COLUMN_EXAM_DATE,
+                WorkList.ExamEntry.COLUMN_EXAM_TIME,
+        };
+
+        String[] projectionAssign = {
+                WorkList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME,
+                WorkList.AssignmentEntry.COLUMN_DATE,
+                WorkList.AssignmentEntry.COLUMN_TIME,
+        };
+
+        String[] bindExam = {
+                WorkList.ExamEntry._ID,
+                WorkList.ExamEntry.COLUMN_EXAM_NAME,
+                WorkList.ExamEntry.COLUMN_EXAM_DATE,
+                WorkList.ExamEntry.COLUMN_EXAM_TIME,
+        };
+
+        String[] bindAssignment = {
+                WorkList.AssignmentEntry._ID,
+                WorkList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME,
+                WorkList.AssignmentEntry.COLUMN_DATE,
+                WorkList.AssignmentEntry.COLUMN_TIME,
+        };
+
+
+        Cursor assignCursor = db.query(WorkList.AssignmentEntry.TABLE_NAME, //table to query
+                bindAssignment,
+                Assignment, //columns for where, Null will return all rows
+                null, //values for where
+                null, //Group By, null is no group by
+                null, //Having, null says return all rows
+                WorkList.AssignmentEntry.COLUMN_TIME + " ASC" //time order
+        );
+
+        Cursor examCursor = db.query(WorkList.ExamEntry.TABLE_NAME, //table to query
+                bindExam,
+                Exam, //columns for where, Null will return all rows
+                null, //values for where
+                null, //Group By, null is no group by
+                null, //Having, null says return all rows
+                WorkList.ExamEntry.COLUMN_EXAM_TIME + " ASC" //times in order
+        );
+
+        //the list items from the layout, will find these in the row_item,
+        //these are the 4 fields being displayed
+        int[] to = new int[]{
+                R.id.examName, R.id.examDate, R.id.examTime, R.id.assignmentName, R.id.assignmentDate, R.id.assignmentTime
+        };
+
+        //create the adapters
+        SimpleCursorAdapter adapterExam = new SimpleCursorAdapter(getApplicationContext(), R.layout.row_item_exam, examCursor, projectionExam, to, 0);
+        SimpleCursorAdapter adapterAssignment = new SimpleCursorAdapter(getApplicationContext(), R.layout.row_item_assignment, assignCursor, projectionAssign, to, 0);
+
+        //set the adapter to the list
+        final ListView listViewAssignment = findViewById(R.id.assignments);
+        listViewAssignment.setAdapter(adapterAssignment);
+
+
+        //set the adapter to the list
+        final ListView listViewExam = findViewById(R.id.exams);
+        listViewExam.setAdapter(adapterExam);
+
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu

@@ -32,10 +32,10 @@ public class AddExam extends AppCompatActivity {
         //grab references to our input fields
 
         examName = findViewById(R.id.examName);
-        final TimePicker examTime = (TimePicker)findViewById(R.id.examTime);
+        final TimePicker examTime = findViewById(R.id.examTime);
         examTime.setIs24HourView(true);
 
-        final DatePicker examDate = (DatePicker)findViewById(R.id.examDate);
+        final DatePicker examDate = findViewById(R.id.examDate);
         save = findViewById(R.id.saveButton);
 
 
@@ -49,8 +49,8 @@ public class AddExam extends AppCompatActivity {
 
                 int hour = examTime.getHour();
                 int minute = examTime.getMinute();
-                String singleMinute ="";
-                String time = "";
+                String singleMinute;
+                String time;
 
                 String date = (month + 1) + "/" + day + "/" + year;
                 if (minute < 10) {

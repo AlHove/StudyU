@@ -4,7 +4,7 @@
 
     <item android:title="@string/viewCalender" app:showAsAction="collapseActionView" android:orderInCategory="100" android:id="@+id/viewCalender"/>
 
-    <item android:title="@string/viewExam" app:showAsAction="collapseActionView" android:orderInCategory="101" android:id="@+id/random"/>
+    <item android:title="@string/viewExam" app:showAsAction="collapseActionView" android:orderInCategory="101" android:id="@+id/viewExam"/>
 
 </menu>
 

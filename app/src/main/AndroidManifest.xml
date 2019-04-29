@@ -18,11 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ExamDBDisplay" />
-        <activity android:name=".AddAssignment" />
-        <activity android:name=".AddExam" />
-        <activity android:name=".AssignmentDBDisplay" />
-        <activity android:name=".WorkDBHelper" />
+        <activity android:name=".ExamDBDisplay"
+                  android:label="Exams"/>
+        <activity android:name=".AddExam"
+            android:label="Add Exam"/>
+        <activity android:name=".AssignmentDBDisplay"
+                  android:label="Assignments"/>
+        <activity android:name=".AddAssign"
+            android:label="Add Assignment"/>
     </application>
 
 </manifest>
