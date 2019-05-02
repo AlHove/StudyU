@@ -1,5 +1,6 @@
 package com.example.GonkDroids.StudyU;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,6 +13,7 @@ import android.widget.CalendarView;
 import android.widget.CalendarView.OnDateChangeListener;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 import java.util.*;
 import java.text.SimpleDateFormat;
@@ -39,9 +41,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
-               CurrentDate = sdf.format(new Date(cv.getDate()));
+                CurrentDate = (month + 1) + "/" + dayOfMonth +"/" +year;
                 String whichDayAssignment = WorkList.AssignmentEntry.COLUMN_DATE + " = " + CurrentDate;
                 String whichDayExam = WorkList.ExamEntry.COLUMN_EXAM_DATE + " = " + CurrentDate;
+                Context context = getApplicationContext();
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, whichDayAssignment, duration);
+                toast.show();
                 refreshDB(whichDayExam,whichDayAssignment);
             }
         });
@@ -78,14 +85,14 @@ public class MainActivity extends AppCompatActivity {
         };
 
         String whichDayAssignment = WorkList.AssignmentEntry.COLUMN_DATE + " = " + CurrentDate;
-        String whichDayExam = WorkList.ExamEntry.COLUMN_EXAM_DATE + " = " + CurrentDate;
+        String whichDayExam = WorkList.ExamEntry.COLUMN_EXAM_DATE + "=?";
+        String[] whereDate = {CurrentDate};
 
-
-
+        String whereAssignment = WorkList.AssignmentEntry.COLUMN_DATE + "=?";
         Cursor assignCursor = db.query(WorkList.AssignmentEntry.TABLE_NAME, //table to query
-                bindAssignment,
-                whichDayAssignment, //columns for where, Null will return all rows
-                null, //values for where
+                projectionAssign,
+                whereAssignment, //columns for where, Null will return all rows
+                whereDate, //values for where
                 null, //Group By, null is no group by
                 null, //Having, null says return all rows
                 WorkList.AssignmentEntry.COLUMN_TIME + " ASC" //time order
@@ -94,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         Cursor examCursor = db.query(WorkList.ExamEntry.TABLE_NAME, //table to query
                 bindExam,
                 whichDayExam, //columns for where, Null will return all rows
-                null, //values for where
+                whereDate, //values for where
                 null, //Group By, null is no group by
                 null, //Having, null says return all rows
                 WorkList.ExamEntry.COLUMN_EXAM_TIME + " ASC" //times in order

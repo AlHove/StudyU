@@ -23,6 +23,8 @@ public class AssignmentDBDisplay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.assignment_main);
+        Toolbar toolbar = findViewById(R.id.toolbar_assignment);
+        setSupportActionBar(toolbar);
         //instead of array and preferences have the DB stuff here
 
         FloatingActionButton fab = findViewById(R.id.fabAssign);

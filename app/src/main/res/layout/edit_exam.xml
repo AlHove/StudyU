@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout  android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/examName"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="58dp"
+            android:layout_marginEnd="176dp"
+            android:clickable="true"
+            android:hint="@string/name"
+            android:inputType="text|textCapWords"
+            android:selectAllOnFocus="false"
+            android:singleLine="true" />
+
+        <DatePicker
+            android:id="@+id/examDate"
+            android:layout_width="wrap_content"
+            android:layout_height="86dp"
+            android:layout_below="@+id/examName"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner" />
+
+        <TimePicker
+            android:id="@+id/examTime"
+            android:layout_width="176dp"
+            android:layout_height="86dp"
+            android:layout_below="@+id/examDate"
+            android:layout_alignEnd="@+id/examDate"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="53dp"
+            android:layout_toStartOf="@+id/examDate"
+            android:timePickerMode="spinner" />
+
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/examTime"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:text="@string/save" />
+
+    </RelativeLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
