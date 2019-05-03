@@ -26,6 +26,9 @@
                   android:label="Assignments"/>
         <activity android:name=".AddAssign"
             android:label="Add Assignment"/>
+        <activity android:name=".EditExam"
+            android:label="Edit Exam"/>
+        <activity android:name="EditAssignment" />
     </application>
 
 </manifest>

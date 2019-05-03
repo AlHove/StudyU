@@ -6,8 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -21,7 +19,7 @@ Add_Assign
 public class AddAssign extends AppCompatActivity {
 
     EditText assignName;
-    Button save;
+    Button save, back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +34,7 @@ public class AddAssign extends AppCompatActivity {
 
         final DatePicker assignDate = findViewById(R.id.assignmentDate);
         save = findViewById(R.id.saveButton);
-
+        back = findViewById(R.id.back);
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,33 +81,16 @@ public class AddAssign extends AppCompatActivity {
             }
 
         });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+        Intent intent = new Intent(getApplicationContext(), AssignmentDBDisplay.class);
+        startActivity(intent);
+            }
 
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.addassignment_menu, menu);
-        return true;
-    }
+        });
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //Start display assignment activity
-        if (id == R.id.viewAssignment) {
-            Intent intent = new Intent(getApplicationContext(), AssignmentDBDisplay.class);
-            startActivity(intent);
-            return true;
-        }
-        //menu option to clear the entire database, really helpful for testing, remove before going to production
-        if (id == R.id.viewExam) {
-            Intent intent = new Intent(getApplicationContext(), ExamDBDisplay.class);
-            startActivity(intent);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+
     }
 }

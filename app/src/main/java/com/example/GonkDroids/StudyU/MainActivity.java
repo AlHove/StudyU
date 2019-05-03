@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     private String CurrentDate;
+    private WorkDBHelper WorkHelper;
+    private SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +52,13 @@ public class MainActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(context, whichDayAssignment, duration);
                 toast.show();
                 String[] whereDate = {CurrentDate};
-                refreshDB(whereDate);
+                refreshDB();
             }
         });
-        //instead of array and preferences have the DB stuff here
+        //instead of array and preferences have the DB stuff herer
 
-        WorkDBHelper WorkHelper = new WorkDBHelper(getApplicationContext());
-        SQLiteDatabase db = WorkHelper.getReadableDatabase();
+        WorkHelper = new WorkDBHelper(getApplicationContext());
+        db = WorkHelper.getReadableDatabase();
 
 
         String[] projectionExam = {
@@ -130,12 +132,11 @@ public class MainActivity extends AppCompatActivity {
         listViewExam.setAdapter(adapterExam);
     }
 
-    public void refreshDB(String[] date){
-        WorkDBHelper WorkHelper = new WorkDBHelper(getApplicationContext());
-        SQLiteDatabase db = WorkHelper.getReadableDatabase();
-        String whereAssignment = WorkList.AssignmentEntry.COLUMN_DATE + "=?";
-        String whereExam = WorkList.ExamEntry.COLUMN_EXAM_DATE + "=?";
+    public void refreshDB(){
+        //instead of array and preferences have the DB stuff here
 
+        WorkHelper = new WorkDBHelper(getApplicationContext());
+        SQLiteDatabase db = WorkHelper.getReadableDatabase();
 
 
         String[] projectionExam = {
@@ -151,24 +152,26 @@ public class MainActivity extends AppCompatActivity {
         };
 
         String[] bindExam = {
-               // WorkList.ExamEntry._ID,
+                WorkList.ExamEntry._ID,
                 WorkList.ExamEntry.COLUMN_EXAM_NAME,
                 WorkList.ExamEntry.COLUMN_EXAM_DATE,
                 WorkList.ExamEntry.COLUMN_EXAM_TIME,
         };
 
         String[] bindAssignment = {
-              //  WorkList.AssignmentEntry._ID,
+                WorkList.AssignmentEntry._ID,
                 WorkList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME,
                 WorkList.AssignmentEntry.COLUMN_DATE,
                 WorkList.AssignmentEntry.COLUMN_TIME,
         };
 
-
+        String whereAssignment = WorkList.AssignmentEntry.COLUMN_DATE + "=?";
+        String whereExam = WorkList.ExamEntry.COLUMN_EXAM_DATE + "=?";
+        String[] whereDate = {CurrentDate};
         Cursor assignCursor = db.query(WorkList.AssignmentEntry.TABLE_NAME, //table to query
                 bindAssignment,
                 whereAssignment, //columns for where, Null will return all rows
-                date, //values for where
+                whereDate, //values for where
                 null, //Group By, null is no group by
                 null, //Having, null says return all rows
                 WorkList.AssignmentEntry.COLUMN_TIME + " ASC" //time order
@@ -177,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
         Cursor examCursor = db.query(WorkList.ExamEntry.TABLE_NAME, //table to query
                 bindExam,
                 whereExam, //columns for where, Null will return all rows
-                date, //values for where
+                whereDate, //values for where
                 null, //Group By, null is no group by
                 null, //Having, null says return all rows
                 WorkList.ExamEntry.COLUMN_EXAM_TIME + " ASC" //times in order
@@ -186,12 +189,16 @@ public class MainActivity extends AppCompatActivity {
         //the list items from the layout, will find these in the row_item,
         //these are the 4 fields being displayed
         int[] to = new int[]{
-                R.id.examName, R.id.examDate, R.id.examTime, R.id.assignmentName, R.id.assignmentDate, R.id.assignmentTime
+                R.id.examName, R.id.examDate, R.id.examTime
         };
 
-        //create the adapters
-        SimpleCursorAdapter adapterExam = new SimpleCursorAdapter(getApplicationContext(), R.layout.row_item_exam, examCursor, projectionExam, to, 0);
-        SimpleCursorAdapter adapterAssignment = new SimpleCursorAdapter(getApplicationContext(), R.layout.row_item_assignment, assignCursor, projectionAssign, to, 0);
+        int[] toAssign = new int[]{
+                R.id.assignmentName, R.id.assignmentDate, R.id.assignmentTime
+        };
+
+        //create the adapters throwing error here
+        SimpleCursorAdapter adapterExam = new SimpleCursorAdapter(getApplicationContext(), R.layout.row_item_exam_calender, examCursor, projectionExam, to, 0);
+        SimpleCursorAdapter adapterAssignment = new SimpleCursorAdapter(getApplicationContext(), R.layout.row_item_assignment_calender, assignCursor, projectionAssign, toAssign, 0);
 
         //set the adapter to the list
         final ListView listViewAssignment = findViewById(R.id.assignments);
