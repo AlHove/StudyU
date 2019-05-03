@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
         //Intent and pending intent
-        Intent notificationIntent = new Intent("StudyU.action.DISPLAY_NOTIFICATION");
+        Intent notificationIntent = new Intent(this, AlarmReceiver.class);
         PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Calendar cal = Calendar.getInstance();
