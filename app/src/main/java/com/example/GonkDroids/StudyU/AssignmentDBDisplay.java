@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -82,18 +83,15 @@ public class AssignmentDBDisplay extends AppCompatActivity {
         listView.setEmptyView(emptyView);
 
         //need to set the On Item Click Listener
-  /*      listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                //Handle the on-click and display a toast, will do more work here later
-                Cursor cursor = (Cursor) parent.getItemAtPosition(position);
-        // type up
             }
 
 
-        }); */
+        });
 
     }
 

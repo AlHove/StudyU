@@ -12,7 +12,7 @@ Alyssa Hove 4/9/19
 
 public class WorkDBHelper extends SQLiteOpenHelper{
 
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
     private static final String DATABASE_NAME = "work.db";
     private static final String TEXT_TYPE = " TEXT";
     private static final String COMMA_SEP = ",";

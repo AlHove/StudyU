@@ -43,13 +43,14 @@ public class MainActivity extends AppCompatActivity {
                                             int dayOfMonth) {
                 CurrentDate = (month + 1) + "/" + dayOfMonth +"/" +year;
                 String whichDayAssignment = WorkList.AssignmentEntry.COLUMN_DATE + " = " + CurrentDate;
-                String whichDayExam = WorkList.ExamEntry.COLUMN_EXAM_DATE + " = " + CurrentDate;
+
                 Context context = getApplicationContext();
                 int duration = Toast.LENGTH_SHORT;
 
                 Toast toast = Toast.makeText(context, whichDayAssignment, duration);
                 toast.show();
-                refreshDB(whichDayExam,whichDayAssignment);
+                String[] whereDate = {CurrentDate};
+                refreshDB(whereDate);
             }
         });
         //instead of array and preferences have the DB stuff here
@@ -84,13 +85,11 @@ public class MainActivity extends AppCompatActivity {
                 WorkList.AssignmentEntry.COLUMN_TIME,
         };
 
-        String whichDayAssignment = WorkList.AssignmentEntry.COLUMN_DATE + " = " + CurrentDate;
-        String whichDayExam = WorkList.ExamEntry.COLUMN_EXAM_DATE + "=?";
-        String[] whereDate = {CurrentDate};
-
         String whereAssignment = WorkList.AssignmentEntry.COLUMN_DATE + "=?";
+        String whereExam = WorkList.ExamEntry.COLUMN_EXAM_DATE + "=?";
+        String[] whereDate = {CurrentDate};
         Cursor assignCursor = db.query(WorkList.AssignmentEntry.TABLE_NAME, //table to query
-                projectionAssign,
+                bindAssignment,
                 whereAssignment, //columns for where, Null will return all rows
                 whereDate, //values for where
                 null, //Group By, null is no group by
@@ -100,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
         Cursor examCursor = db.query(WorkList.ExamEntry.TABLE_NAME, //table to query
                 bindExam,
-                whichDayExam, //columns for where, Null will return all rows
+                whereExam, //columns for where, Null will return all rows
                 whereDate, //values for where
                 null, //Group By, null is no group by
                 null, //Having, null says return all rows
@@ -110,12 +109,16 @@ public class MainActivity extends AppCompatActivity {
         //the list items from the layout, will find these in the row_item,
         //these are the 4 fields being displayed
         int[] to = new int[]{
-                R.id.examName, R.id.examDate, R.id.examTime, R.id.assignmentName, R.id.assignmentDate, R.id.assignmentTime
+                R.id.examName, R.id.examDate, R.id.examTime
         };
 
-        //create the adapters
+        int[] toAssign = new int[]{
+                R.id.assignmentName, R.id.assignmentDate, R.id.assignmentTime
+        };
+
+        //create the adapters throwing error here
         SimpleCursorAdapter adapterExam = new SimpleCursorAdapter(getApplicationContext(), R.layout.row_item_exam, examCursor, projectionExam, to, 0);
-        SimpleCursorAdapter adapterAssignment = new SimpleCursorAdapter(getApplicationContext(), R.layout.row_item_assignment, assignCursor, projectionAssign, to, 0);
+        SimpleCursorAdapter adapterAssignment = new SimpleCursorAdapter(getApplicationContext(), R.layout.row_item_assignment, assignCursor, projectionAssign, toAssign, 0);
 
         //set the adapter to the list
         final ListView listViewAssignment = findViewById(R.id.assignments);
@@ -127,9 +130,12 @@ public class MainActivity extends AppCompatActivity {
         listViewExam.setAdapter(adapterExam);
     }
 
-    public void refreshDB(String Exam, String Assignment){
+    public void refreshDB(String[] date){
         WorkDBHelper WorkHelper = new WorkDBHelper(getApplicationContext());
         SQLiteDatabase db = WorkHelper.getReadableDatabase();
+        String whereAssignment = WorkList.AssignmentEntry.COLUMN_DATE + "=?";
+        String whereExam = WorkList.ExamEntry.COLUMN_EXAM_DATE + "=?";
+
 
 
         String[] projectionExam = {
@@ -145,14 +151,14 @@ public class MainActivity extends AppCompatActivity {
         };
 
         String[] bindExam = {
-                WorkList.ExamEntry._ID,
+               // WorkList.ExamEntry._ID,
                 WorkList.ExamEntry.COLUMN_EXAM_NAME,
                 WorkList.ExamEntry.COLUMN_EXAM_DATE,
                 WorkList.ExamEntry.COLUMN_EXAM_TIME,
         };
 
         String[] bindAssignment = {
-                WorkList.AssignmentEntry._ID,
+              //  WorkList.AssignmentEntry._ID,
                 WorkList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME,
                 WorkList.AssignmentEntry.COLUMN_DATE,
                 WorkList.AssignmentEntry.COLUMN_TIME,
@@ -161,8 +167,8 @@ public class MainActivity extends AppCompatActivity {
 
         Cursor assignCursor = db.query(WorkList.AssignmentEntry.TABLE_NAME, //table to query
                 bindAssignment,
-                Assignment, //columns for where, Null will return all rows
-                null, //values for where
+                whereAssignment, //columns for where, Null will return all rows
+                date, //values for where
                 null, //Group By, null is no group by
                 null, //Having, null says return all rows
                 WorkList.AssignmentEntry.COLUMN_TIME + " ASC" //time order
@@ -170,8 +176,8 @@ public class MainActivity extends AppCompatActivity {
 
         Cursor examCursor = db.query(WorkList.ExamEntry.TABLE_NAME, //table to query
                 bindExam,
-                Exam, //columns for where, Null will return all rows
-                null, //values for where
+                whereExam, //columns for where, Null will return all rows
+                date, //values for where
                 null, //Group By, null is no group by
                 null, //Having, null says return all rows
                 WorkList.ExamEntry.COLUMN_EXAM_TIME + " ASC" //times in order
