@@ -15,6 +15,9 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
+import android.app.AlarmManager; //Kaleb 05/03/19
+import android.app.PendingIntent;
+
 import java.util.*;
 import java.text.SimpleDateFormat;
 
@@ -33,6 +36,17 @@ public class MainActivity extends AppCompatActivity {
         Calendar c = Calendar.getInstance();
         CurrentDate = sdf.format(c.getTime());
         final CalendarView cv = findViewById(R.id.calendar_view); // get the reference of CalendarView
+
+        //Alarm service
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        //Intent and pending intent
+        Intent notificationIntent = new Intent("StudyU.action.DISPLAY_NOTIFICATION");
+        PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.SECOND, 5); //Notification is called 5 seconds after the app is opened
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
 
         Toolbar toolbar = findViewById(R.id.calendar_toolbar);
         setSupportActionBar(toolbar);

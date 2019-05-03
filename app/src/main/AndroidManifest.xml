@@ -26,6 +26,11 @@
                   android:label="Assignments"/>
         <activity android:name=".AddAssign"
             android:label="Add Assignment"/>
+        <receiver android:name=".AlarmReceiver">
+            <intent-filter>
+                <action android:name="StudyU.action.DISPLAY_NOTIFICATION"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
