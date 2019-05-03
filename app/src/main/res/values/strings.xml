@@ -13,4 +13,6 @@
     <string name="clearDatabase">Clear Database</string>
     <string name="enterValues">Enter Names</string>
     <string name="save">Save</string>
+    <string name="back">Back</string>
+    <string name="delete">Delete</string>
 </resources>

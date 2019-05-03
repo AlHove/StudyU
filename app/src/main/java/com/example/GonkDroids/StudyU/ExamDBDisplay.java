@@ -37,7 +37,7 @@ public class ExamDBDisplay extends AppCompatActivity {
             }
         });
 
-        WorkDBHelper dbHelper = new WorkDBHelper(getApplicationContext());
+        final WorkDBHelper dbHelper = new WorkDBHelper(getApplicationContext());
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
 
@@ -88,9 +88,12 @@ public class ExamDBDisplay extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Cursor cursor = (Cursor) parent.getItemAtPosition(position);
+                Intent intent = new Intent(getApplicationContext(), EditExam.class);
+                String selectedId = (String) cursor.getString(cursor.getColumnIndex(WorkList.ExamEntry.COLUMN_EXAM_NAME));
+                intent.putExtra("name", selectedId );
+                startActivity(intent);
             }
-
-
         });
     }
 

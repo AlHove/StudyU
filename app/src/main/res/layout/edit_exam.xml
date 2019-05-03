@@ -3,7 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <RelativeLayout  android:layout_width="match_parent"
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <EditText
@@ -13,9 +15,9 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="58dp"
-            android:layout_marginEnd="176dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="170dp"
             android:clickable="true"
             android:hint="@string/name"
             android:inputType="text|textCapWords"
@@ -24,25 +26,27 @@
 
         <DatePicker
             android:id="@+id/examDate"
-            android:layout_width="wrap_content"
-            android:layout_height="86dp"
+            android:layout_width="190dp"
+            android:layout_height="67dp"
             android:layout_below="@+id/examName"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="@dimen/fab_margin"
-            android:layout_marginTop="@dimen/fab_margin"
+            android:layout_marginStart="-1dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="-7dp"
+            android:layout_toStartOf="@+id/back"
             android:calendarViewShown="false"
             android:datePickerMode="spinner" />
 
         <TimePicker
             android:id="@+id/examTime"
-            android:layout_width="176dp"
-            android:layout_height="86dp"
+            android:layout_width="190dp"
+            android:layout_height="67dp"
             android:layout_below="@+id/examDate"
             android:layout_alignEnd="@+id/examDate"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="53dp"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:layout_marginEnd="45dp"
             android:layout_toStartOf="@+id/examDate"
             android:timePickerMode="spinner" />
 
@@ -51,11 +55,34 @@
             android:id="@+id/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/examTime"
+            android:layout_below="@+id/back"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="@dimen/fab_margin"
-            android:layout_marginTop="@dimen/fab_margin"
+            android:layout_marginStart="285dp"
+            android:layout_marginTop="28dp"
             android:text="@string/save" />
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="87dp"
+            android:layout_marginEnd="36dp"
+            android:text="@string/back" />
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/saveButton"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="285dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="38dp"
+            android:text="@string/delete" />
 
     </RelativeLayout>
 

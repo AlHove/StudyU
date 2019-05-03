@@ -87,40 +87,93 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/AssignmentDBDisplay.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="765">
               <caret line="61" column="40" selection-start-line="61" selection-start-column="40" selection-end-line="61" selection-end-column="40" />
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/AddExam.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/WorkList.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/edit_exam.xml">
+          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+            <state relative-caret-position="67">
+              <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="84" selection-end-column="44" />
+              <folding>
+                <element signature="e#2431#2445#0" expanded="true" />
+                <element signature="e#3335#3351#0" expanded="true" />
+              </folding>
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/WorkList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="129">
+              <caret line="233" column="84" lean-forward="true" selection-start-line="233" selection-start-column="12" selection-end-line="233" selection-end-column="84" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="765">
               <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/EditExam.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="113">
+              <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3599#3804#0" expanded="true" />
+                <element signature="e#3803#3804#0" expanded="true" />
+                <element signature="e#3842#3994#0" expanded="true" />
+                <element signature="e#3993#3994#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/AlarmReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="328">
               <caret line="46" lean-forward="true" selection-end-line="46" />
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/ExamDBDisplay.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="93" column="37" selection-start-line="93" selection-start-column="37" selection-end-line="93" selection-end-column="37" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,6 +181,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/NotificationActivity.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -135,26 +189,74 @@
               <caret line="16" lean-forward="true" selection-end-line="16" />
               <folding>
                 <element signature="imports" expanded="true" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/edit_assginment.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="80" column="44" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
+              <folding>
+                <element signature="e#3276#3292#0" expanded="true" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="218">
               <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/calander_main.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="697">
+              <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
             </state>
           </provider>
           <provider editor-type-id="android-manifest" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/AddAssign.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="314">
               <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/EditAssignment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="72" column="4" selection-start-line="72" selection-start-column="4" selection-end-line="77" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2881#3092#0" expanded="true" />
+                <element signature="e#3091#3092#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/WorkDBHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -168,8 +270,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="resourceFile" />
-        <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -195,32 +297,22 @@
         <option value="$PROJECT_DIR$/app/src/main/res/menu/addexam_menu.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/row_item_calander.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/calander_menu.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/addassignment_menu.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/row_item_assignment.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/AddAssignment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/exam_menu.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/AddAssign.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/assignment_menu.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/assignment_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/add_assignment.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/calander_main.xml" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/edit_assginment.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/row_item_exam.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/edit_exam.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/ExamDBDisplay.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/AssignmentDBDisplay.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/EditAssignment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/AddExam.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/EditExam.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/WorkDBHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/WorkList.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/exam_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/add_exam.xml" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/AlarmReciever.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/MainActivity.java" />
@@ -234,14 +326,44 @@
     <option name="y" value="-11" />
     <option name="width" value="980" />
     <option name="height" value="1091" />
+=======
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/AddAssign.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/AddExam.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/add_assignment.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/AssignmentDBDisplay.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/calander_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/row_item_exam_calender.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/row_item_assignment_calender.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/EditAssignment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/edit_exam.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/edit_assginment.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/ExamDBDisplay.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/EditExam.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-66" />
+    <option name="y" value="81" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
+=======
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -434,7 +556,11 @@
     <layout>
       <window_info id="Resources Explorer" order="0" weight="0.32980332" />
       <window_info id="Captures" order="1" side_tool="true" weight="0.25" />
+<<<<<<< HEAD
       <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49753696" weight="0.38785836" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.49753696" visible="true" weight="0.28895614" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
       <window_info id="Structure" order="3" sideWeight="0.50246304" side_tool="true" weight="0.33055976" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Build Variants" order="5" side_tool="true" />
@@ -446,8 +572,13 @@
       <window_info anchor="bottom" id="Logcat" order="2" weight="0.3289689" />
       <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49924356" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.5015129" side_tool="true" weight="0.36006546" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Build" order="5" sideWeight="0.49848714" visible="true" weight="0.32006633" />
       <window_info anchor="bottom" id="Android Profiler" order="6" show_stripe_button="false" weight="0.3289689" />
+=======
+      <window_info anchor="bottom" id="Build" order="5" sideWeight="0.49848714" visible="true" weight="0.3207856" />
+      <window_info anchor="bottom" id="Android Profiler" order="6" weight="0.3289689" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
       <window_info anchor="bottom" id="Find" order="7" weight="0.3289689" />
       <window_info anchor="bottom" id="Debug" order="8" />
       <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49848714" weight="0.8363339" />
@@ -544,13 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/addexam_menu.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -581,6 +705,7 @@
           </folding>
         </state>
       </provider>
+<<<<<<< HEAD
       <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/add_assignment.xml">
@@ -598,6 +723,8 @@
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
+=======
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/calander_menu.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -650,37 +777,71 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/edit_assginment.xml">
       <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/calander_main.xml">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/WorkList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/exam_main.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="16" selection-end-column="52" />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/row_item_assignment.xml">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/add_assignment.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/add_exam.xml">
+      <provider editor-type-id="android-designer2" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret selection-end-line="35" selection-end-column="15" />
+          <caret selection-end-line="75" selection-end-column="50" />
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/EditAssignment.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/ExamDBDisplay.java">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        <state relative-caret-position="250">
+          <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/AddAssign.java">
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="34" column="72" selection-start-line="34" selection-start-column="72" selection-end-line="34" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/EditExam.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/add_exam.xml">
       <provider editor-type-id="text-editor">
@@ -694,53 +855,112 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/AssignmentDBDisplay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3169#3713#0" expanded="true" />
+            <element signature="e#3712#3713#0" expanded="true" />
+          </folding>
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/row_item_exam.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="476">
           <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+=======
+        <state relative-caret-position="-10">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="31" selection-end-column="51" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/exam_main.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" selection-start-line="6" selection-end-line="16" selection-end-column="52" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/row_item_exam_calender.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/row_item_assignment.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="17" selection-start-line="17" selection-end-line="31" selection-end-column="51" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/AssignmentDBDisplay.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="61" column="40" selection-start-line="61" selection-start-column="40" selection-end-line="61" selection-end-column="40" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/row_item_assignment_calender.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/WorkDBHelper.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/assignment_menu.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="20" column="53" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/AddExam.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+        <state relative-caret-position="148">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/WorkDBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="233" column="84" lean-forward="true" selection-start-line="233" selection-start-column="12" selection-end-line="233" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/WorkList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -752,46 +972,111 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
           <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/EditAssignment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="72" column="4" selection-start-line="72" selection-start-column="4" selection-end-line="77" selection-end-column="11" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2881#3092#0" expanded="true" />
+            <element signature="e#3091#3092#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/calander_main.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
         </state>
       </provider>
       <provider editor-type-id="android-manifest" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
           <folding>
             <element signature="imports" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/edit_exam.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="84" selection-end-column="44" />
+          <folding>
+            <element signature="e#2431#2445#0" expanded="true" />
+            <element signature="e#3335#3351#0" expanded="true" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/AlarmReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="46" lean-forward="true" selection-end-line="46" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/edit_assginment.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="80" column="44" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
+          <folding>
+            <element signature="e#3276#3292#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/ExamDBDisplay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="93" column="37" selection-start-line="93" selection-start-column="37" selection-end-line="93" selection-end-column="37" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/NotificationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" lean-forward="true" selection-end-line="16" />
           <folding>
             <element signature="imports" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/GonkDroids/StudyU/EditExam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3599#3804#0" expanded="true" />
+            <element signature="e#3803#3804#0" expanded="true" />
+            <element signature="e#3842#3994#0" expanded="true" />
+            <element signature="e#3993#3994#0" expanded="true" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
           </folding>
         </state>
       </provider>

@@ -26,11 +26,17 @@
                   android:label="Assignments"/>
         <activity android:name=".AddAssign"
             android:label="Add Assignment"/>
+<<<<<<< HEAD
         <receiver android:name=".AlarmReceiver">
             <intent-filter>
                 <action android:name="StudyU.action.DISPLAY_NOTIFICATION"/>
             </intent-filter>
         </receiver>
+=======
+        <activity android:name=".EditExam"
+            android:label="Edit Exam"/>
+        <activity android:name="EditAssignment" />
+>>>>>>> 7737e33dc96529defa431721929844d94a75f4f4
     </application>
 
 </manifest>

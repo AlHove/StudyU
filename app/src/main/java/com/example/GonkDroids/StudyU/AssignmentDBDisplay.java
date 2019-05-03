@@ -87,12 +87,13 @@ public class AssignmentDBDisplay extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Cursor cursor = (Cursor) parent.getItemAtPosition(position);
+                Intent intent = new Intent(getApplicationContext(), EditAssignment.class);
+                String selectedId = cursor.getString(cursor.getColumnIndex(WorkList.ExamEntry._id));
+                intent.putExtra("id", selectedId );
+                startActivity(intent);
             }
-
-
         });
-
     }
 
     @Override
