@@ -13,7 +13,6 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:clickable="true"
             android:hint="@string/name"
             android:inputType="text|textCapWords"
             android:selectAllOnFocus="false"
@@ -26,6 +25,8 @@
             android:layout_below="@+id/assignmentName"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
+            android:layout_marginTop="13dp"
+            android:layout_toStartOf="@+id/back"
             android:calendarViewShown="false"
             android:datePickerMode="spinner" />
 
@@ -43,11 +44,11 @@
 
         <Button
             android:id="@+id/back"
-            android:layout_width="@dimen/button"
+            android:layout_width="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_height="@dimen/button"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:text="@string/back" />
-
 
         <Button
             android:id="@+id/saveButton"
@@ -58,7 +59,6 @@
             android:layout_alignParentBottom="true"
             android:text="@string/save" />
 
+
     </RelativeLayout>
-
-
 </android.support.design.widget.CoordinatorLayout>
