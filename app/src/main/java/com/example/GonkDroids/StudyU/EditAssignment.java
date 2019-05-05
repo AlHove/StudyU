@@ -15,7 +15,7 @@ import android.widget.TimePicker;
 public class EditAssignment extends AppCompatActivity {
 
     EditText assignName;
-    Button save, back;
+    Button save, back, delete;
     private String id;
 
     @Override
@@ -29,6 +29,7 @@ public class EditAssignment extends AppCompatActivity {
         final DatePicker examDate = findViewById(R.id.examDate);
         save = findViewById(R.id.saveButton);
         back = findViewById(R.id.back);
+        delete = findViewById(R.id.delete);
         final Intent intent = getIntent();
         id = intent.getStringExtra("id");
 
@@ -74,6 +75,18 @@ public class EditAssignment extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), AssignmentDBDisplay.class));
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
+                SQLiteDatabase db = myDbHelper.getWritableDatabase();
+                String where = WorkList.ExamEntry.COLUMN_EXAM_NAME + "=?";
+                String[] whereArgs = new String[] {String.valueOf(id)};
+
+                db.delete(WorkList.ExamEntry.TABLE_NAME,where,whereArgs);
             }
         });
 

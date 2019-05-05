@@ -90,7 +90,7 @@ public class ExamDBDisplay extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Cursor cursor = (Cursor) parent.getItemAtPosition(position);
                 Intent intent = new Intent(getApplicationContext(), EditExam.class);
-                String selectedId = (String) cursor.getString(cursor.getColumnIndex(WorkList.ExamEntry.COLUMN_EXAM_NAME));
+                String selectedId = (String) cursor.getString(cursor.getColumnIndex(WorkList.ExamEntry._id));
                 intent.putExtra("name", selectedId );
                 startActivity(intent);
             }

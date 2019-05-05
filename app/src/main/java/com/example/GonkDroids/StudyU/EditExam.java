@@ -15,7 +15,7 @@ public class EditExam extends AppCompatActivity {
 
     EditText examName;
     Button save, back, delete;
-    private String name;
+    private String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,7 @@ public class EditExam extends AppCompatActivity {
         back = findViewById(R.id.back);
         delete = findViewById(R.id.delete);
         Intent intent = getIntent();
-        name = intent.getStringExtra("name");
-        examName.setText(name);
+        id = intent.getStringExtra("id");
 
 
         save.setOnClickListener(new View.OnClickListener() {
@@ -58,9 +57,9 @@ public class EditExam extends AppCompatActivity {
                                         WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
                                         SQLiteDatabase db = myDbHelper.getWritableDatabase();
                                         ContentValues values = new ContentValues();
-                                        String where = WorkList.ExamEntry.COLUMN_EXAM_NAME + "=?";
+                                        String where = WorkList.ExamEntry._id + "=?";
 
-                                        String[] whereArgs = new String[] {String.valueOf(name)};
+                                        String[] whereArgs = new String[] {String.valueOf(id)};
 
                                         //put the values from the screen (not doing and editing here) into the object
                                         values.put(WorkList.ExamEntry.COLUMN_EXAM_NAME, examName.getText().toString()); // Get the exam name
@@ -84,10 +83,11 @@ public class EditExam extends AppCompatActivity {
             public void onClick(View v) {
                 WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
                 SQLiteDatabase db = myDbHelper.getWritableDatabase();
-                String where = WorkList.ExamEntry.COLUMN_EXAM_NAME + "=?";
-                String[] whereArgs = new String[] {String.valueOf(name)};
+                String where = WorkList.ExamEntry._id + "=?";
+                String[] whereArgs = new String[] {String.valueOf(id)};
 
                db.delete(WorkList.ExamEntry.TABLE_NAME,where,whereArgs);
+               startActivity(new Intent(getApplicationContext(), ExamDBDisplay.class));
             }
         });
 
