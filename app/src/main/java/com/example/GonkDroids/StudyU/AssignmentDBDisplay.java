@@ -36,7 +36,7 @@ public class AssignmentDBDisplay extends AppCompatActivity {
             }
         });
 
-        WorkDBHelper dbHelper = new WorkDBHelper(this);
+        final WorkDBHelper dbHelper = new WorkDBHelper(this);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
 
@@ -89,8 +89,8 @@ public class AssignmentDBDisplay extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Cursor cursor = (Cursor) parent.getItemAtPosition(position);
                 Intent intent = new Intent(getApplicationContext(), EditAssignment.class);
-                String selectedId = cursor.getString(cursor.getColumnIndex(WorkList.ExamEntry._id));
-                intent.putExtra("id", selectedId );
+                String selectedID = cursor.getString(cursor.getColumnIndex(WorkList.AssignmentEntry._id));
+                intent.putExtra("id", selectedID);
                 startActivity(intent);
             }
         });

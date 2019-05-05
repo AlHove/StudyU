@@ -11,6 +11,11 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
+/*
+Alyssa Hove
+Used to edit assignments in the database
+ */
+
 
 public class EditAssignment extends AppCompatActivity {
 
@@ -24,9 +29,9 @@ public class EditAssignment extends AppCompatActivity {
         setContentView(R.layout.edit_assginment);
 
         assignName = findViewById(R.id.assignmentName);
-        final TimePicker examTime = findViewById(R.id.assignmentTime);
-        examTime.setIs24HourView(true);
-        final DatePicker examDate = findViewById(R.id.examDate);
+        final TimePicker assignTime = findViewById(R.id.assignmentTime);
+        assignTime.setIs24HourView(true);
+        final DatePicker assignDate = findViewById(R.id.assignmentDate);
         save = findViewById(R.id.saveButton);
         back = findViewById(R.id.back);
         delete = findViewById(R.id.delete);
@@ -38,12 +43,12 @@ public class EditAssignment extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                int day = examDate.getDayOfMonth();
-                int month = examDate.getMonth();
-                int year = examDate.getYear();
+                int day = assignDate.getDayOfMonth();
+                int month = assignDate.getMonth();
+                int year = assignDate.getYear();
 
-                int hour = examTime.getHour();
-                int minute = examTime.getMinute();
+                int hour = assignTime.getHour();
+                int minute = assignTime.getMinute();
                 String singleMinute;
                 String time;
 
@@ -58,9 +63,9 @@ public class EditAssignment extends AppCompatActivity {
                 WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
                 SQLiteDatabase db = myDbHelper.getWritableDatabase();
                 ContentValues values = new ContentValues();
-                String where = "id=?";
+                String where = WorkList.AssignmentEntry._id + "=?";
 
-                String[] whereArgs = new String[] {String.valueOf(id)};
+                String[] whereArgs = new String[] {id};
 
                 //put the values from the screen (not doing and editing here) into the object
                 values.put(WorkList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME, assignName.getText().toString()); // Get the exam name
@@ -71,6 +76,7 @@ public class EditAssignment extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), AssignmentDBDisplay.class));
             }
         });
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,12 +89,12 @@ public class EditAssignment extends AppCompatActivity {
             public void onClick(View v) {
                 WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
                 SQLiteDatabase db = myDbHelper.getWritableDatabase();
-                String where = WorkList.ExamEntry.COLUMN_EXAM_NAME + "=?";
-                String[] whereArgs = new String[] {String.valueOf(id)};
+                String where = WorkList.AssignmentEntry._id + "=?";
+                String[] whereArgs = new String[] {id};
 
-                db.delete(WorkList.ExamEntry.TABLE_NAME,where,whereArgs);
+                db.delete(WorkList.AssignmentEntry.TABLE_NAME,where,whereArgs);
+                startActivity(new Intent(getApplicationContext(), AssignmentDBDisplay.class));
             }
         });
-
     }
 }

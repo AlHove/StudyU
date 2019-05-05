@@ -1,5 +1,9 @@
 package com.example.GonkDroids.StudyU;
 
+/*
+Alyssa Hove
+Used to edit assignments in the database
+ */
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -59,7 +63,7 @@ public class EditExam extends AppCompatActivity {
                                         ContentValues values = new ContentValues();
                                         String where = WorkList.ExamEntry._id + "=?";
 
-                                        String[] whereArgs = new String[] {String.valueOf(id)};
+                                        String[] whereArgs = new String[] {id};
 
                                         //put the values from the screen (not doing and editing here) into the object
                                         values.put(WorkList.ExamEntry.COLUMN_EXAM_NAME, examName.getText().toString()); // Get the exam name
@@ -84,7 +88,7 @@ public class EditExam extends AppCompatActivity {
                 WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
                 SQLiteDatabase db = myDbHelper.getWritableDatabase();
                 String where = WorkList.ExamEntry._id + "=?";
-                String[] whereArgs = new String[] {String.valueOf(id)};
+                String[] whereArgs = new String[] {id};
 
                db.delete(WorkList.ExamEntry.TABLE_NAME,where,whereArgs);
                startActivity(new Intent(getApplicationContext(), ExamDBDisplay.class));

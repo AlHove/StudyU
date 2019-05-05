@@ -2,5 +2,4 @@
 <menu tools:context=".ExamDBDisplay.java" xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/viewCalender" android:orderInCategory="100" android:title="@string/viewCalender" app:showAsAction="collapseActionView" />
     <item android:title="@string/viewAssignment" app:showAsAction="collapseActionView" android:orderInCategory="101" android:id="@+id/viewAssignment"/>
-    <item android:id="@+id/clearDatabase" app:showAsAction="collapseActionView" android:title="Clear DB"></item>
 </menu>

@@ -90,8 +90,8 @@ public class ExamDBDisplay extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Cursor cursor = (Cursor) parent.getItemAtPosition(position);
                 Intent intent = new Intent(getApplicationContext(), EditExam.class);
-                String selectedId = (String) cursor.getString(cursor.getColumnIndex(WorkList.ExamEntry._id));
-                intent.putExtra("name", selectedId );
+                String selectedID = cursor.getString(cursor.getColumnIndex(WorkList.ExamEntry._id));
+                intent.putExtra("id", selectedID );
                 startActivity(intent);
             }
         });
@@ -114,13 +114,6 @@ public class ExamDBDisplay extends AppCompatActivity {
         }
         if (id == R.id.viewAssignment) {
             startActivity(new Intent(getApplicationContext(), AssignmentDBDisplay.class));
-            return true;
-        }
-        //menu option to clear the entire database, really helpful for testing, remove before going to production
-        if (id == R.id.clearDatabase) {
-            WorkDBHelper myDbHelper = new WorkDBHelper(getApplicationContext());
-            SQLiteDatabase db = myDbHelper.getWritableDatabase();
-            db.delete(WorkList.ExamEntry.TABLE_NAME,"1",null);
             return true;
         }
 

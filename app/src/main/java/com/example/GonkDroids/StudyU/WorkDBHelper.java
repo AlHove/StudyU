@@ -54,18 +54,18 @@ public class WorkDBHelper extends SQLiteOpenHelper{
         onCreate(db);
     }
 
-    public Cursor getExamID(String name){
+    public String getExamID(String name){
             SQLiteDatabase db = this.getWritableDatabase();
             String query = "SELECT " + WorkList.ExamEntry._ID + " FROM " + WorkList.ExamEntry.TABLE_NAME + " WHERE " + WorkList.ExamEntry.COLUMN_EXAM_NAME + " = '" + name + "'";
             Cursor data = db.rawQuery(query, null);
-            return data;
+            return data.getString(data.getColumnIndex("_id"));
         }
 
-    public Cursor getAssignmentID(String name) { // gets Assignment ID by assignment name
+    public String getAssignmentID(String name) { // gets Assignment ID by assignment name
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT " + WorkList.AssignmentEntry._ID + " FROM " + WorkList.AssignmentEntry.TABLE_NAME + " WHERE " + WorkList.AssignmentEntry.COLUMN_ASSIGNMENT_NAME + " = '" + name + "'";
         Cursor data = db.rawQuery(query, null);
-        return data;
+        return data.getString(data.getColumnIndex("_id"));
     }
 
 }
