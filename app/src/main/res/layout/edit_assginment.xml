@@ -7,15 +7,12 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/assignmentName"
+            android:id="@+id/examName"
             android:layout_width="@dimen/spinner_width"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="19dp"
-            android:layout_marginEnd="170dp"
             android:clickable="true"
             android:hint="@string/name"
             android:inputType="text|textCapWords"
@@ -23,62 +20,53 @@
             android:singleLine="true" />
 
         <DatePicker
-            android:id="@+id/assignmentDate"
+            android:id="@+id/examDate"
             android:layout_width="@dimen/spinner_width"
             android:layout_height="@dimen/spinner_height"
-            android:layout_below="@+id/assignmentName"
+            android:layout_below="@+id/examName"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="-1dp"
+            android:layout_alignParentLeft="true"
             android:layout_marginTop="13dp"
-            android:layout_marginEnd="-7dp"
             android:layout_toStartOf="@+id/back"
             android:calendarViewShown="false"
             android:datePickerMode="spinner" />
 
         <TimePicker
-            android:id="@+id/assignmentTime"
+            android:id="@+id/examTime"
             android:layout_width="@dimen/spinner_width"
             android:layout_height="@dimen/spinner_height"
-            android:layout_below="@+id/assignmentDate"
-            android:layout_alignEnd="@+id/assignmentDate"
+            android:layout_below="@+id/examDate"
+            android:layout_alignEnd="@+id/examDate"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="@dimen/fab_margin"
-            android:layout_marginTop="@dimen/fab_margin"
-            android:layout_marginEnd="45dp"
-            android:layout_toStartOf="@+id/assignmentDate"
+            android:layout_alignParentLeft="true"
+            android:layout_toStartOf="@+id/examDate"
             android:timePickerMode="spinner" />
 
 
         <Button
             android:id="@+id/saveButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/button"
+            android:layout_height="@dimen/button"
             android:layout_below="@+id/back"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="288dp"
-            android:layout_marginTop="37dp"
+            android:layout_alignParentRight="true"
+
             android:text="@string/save" />
 
         <Button
             android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/button"
             android:layout_alignParentTop="true"
+            android:layout_height="@dimen/button"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="87dp"
-            android:layout_marginEnd="36dp"
             android:text="@string/back" />
+
         <Button
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/saveButton"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="285dp"
-            android:layout_marginTop="35dp"
-            android:layout_marginEnd="38dp"
+            android:layout_alignParentBottom="true"
             android:text="@string/delete" />
 
     </RelativeLayout>

@@ -11,11 +11,8 @@
             android:layout_width="@dimen/spinner_width"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="19dp"
-            android:layout_marginEnd="170dp"
             android:clickable="true"
             android:hint="@string/name"
             android:inputType="text|textCapWords"
@@ -28,10 +25,7 @@
             android:layout_height="@dimen/spinner_height"
             android:layout_below="@+id/assignmentName"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="-1dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="-7dp"
-            android:layout_toStartOf="@+id/back"
+            android:layout_alignParentLeft="true"
             android:calendarViewShown="false"
             android:datePickerMode="spinner" />
 
@@ -42,33 +36,27 @@
             android:layout_below="@+id/assignmentDate"
             android:layout_alignEnd="@+id/assignmentDate"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="@dimen/fab_margin"
-            android:layout_marginTop="@dimen/fab_margin"
-            android:layout_marginEnd="45dp"
+            android:layout_alignParentLeft="true"
             android:layout_toStartOf="@+id/assignmentDate"
             android:timePickerMode="spinner" />
+
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="@dimen/button"
+            android:layout_height="@dimen/button"
+            android:layout_alignParentRight="true"
+            android:text="@string/back" />
 
 
         <Button
             android:id="@+id/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/back"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="288dp"
-            android:layout_marginTop="37dp"
-            android:text="@string/save" />
-
-        <Button
-            android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="87dp"
-            android:layout_marginEnd="36dp"
-            android:text="@string/back" />
+            android:layout_alignParentBottom="true"
+            android:text="@string/save" />
 
     </RelativeLayout>
 
